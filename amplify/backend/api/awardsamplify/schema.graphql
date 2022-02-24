@@ -6,5 +6,18 @@ type Award @model {
   id: ID!
   name: String!
   description: String
+  parentco: String
+  type: String
+  openforentries: String
+  deadline1: String
+  deadline2: String
+  deadline3: String
+  fee1: String
+  fee2: String
+  fee: String
+  eligibility: String
+  winnersannouncement: String
+  websitelink: String
+  notes: String
   image: String
 }

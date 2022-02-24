@@ -5,7 +5,7 @@ import { Authenticator } from '@aws-amplify/ui-react';
 import { listAwards } from './graphql/queries';
 import '@aws-amplify/ui-react/styles.css';
 import { createAward as createAwardMutation, deleteAward as deleteAwardMutation } from './graphql/mutations';
-
+import { Link } from "react-router-dom";
 const initialFormState = { name: '', description: '' }
 
 function App() {
@@ -45,34 +45,14 @@ function App() {
     setAwards(newAwardsArray);
     await API.graphql({ query: deleteAwardMutation, variables: { input: { id } }});
   }
-  async function onChange(e) {
-    if (!e.target.files[0]) return
-    const file = e.target.files[0];
-    setFormData({ ...formData, image: file.name });
-    await Storage.put(file.name, file);
-    fetchAwards();
-  }
+
 
   return (
     <Authenticator>
     {({ signOut, user }) => (
     <div className="App">
       <h1>My Awards App</h1>
-      <input  
-        onChange={e => setFormData({ ...formData, 'name': e.target.value})}
-        placeholder="Award name"
-        value={formData.name}
-      />
-      <input
-        onChange={e => setFormData({ ...formData, 'description': e.target.value})}
-        placeholder="Award description"
-        value={formData.description}
-      />
-      <input
-        type="file"
-        onChange={onChange}
-      />
-      <button onClick={createAward}>Create Award</button>
+      <Link to="/addaward">Add Award Show</Link>
       <div style={{marginBottom: 30}}>
         {
           awards.map(award => (
@@ -91,6 +71,7 @@ function App() {
     </div>
     )}
     </Authenticator>
+    
   );
 }
 
