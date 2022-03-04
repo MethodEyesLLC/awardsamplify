@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import Amplify from 'aws-amplify';
 import config from './aws-exports';
 import AddAward from './components/addAward'
+import SeeAwards from './components/seeAwards'
 import {
   BrowserRouter,
   Routes,
@@ -18,10 +19,13 @@ Amplify.configure(config);
 
 const rootElement = document.getElementById("root");
 render (
+
+
   <BrowserRouter>
     <Routes>
       <Route path ="/" element={<App />}/>
       <Route path="/addaward" element={<AddAward />} />
+      <Route path="/seeawards" element={<SeeAwards />} />
     </Routes>
   </BrowserRouter>,
     rootElement

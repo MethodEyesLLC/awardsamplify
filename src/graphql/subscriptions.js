@@ -7,6 +7,19 @@ export const onCreateAward = /* GraphQL */ `
       id
       name
       description
+      parentco
+      type
+      openforentries
+      deadline1
+      deadline2
+      deadline3
+      fee1
+      fee2
+      fee
+      eligibility
+      winnersannouncement
+      websitelink
+      notes
       image
       createdAt
       updatedAt
@@ -19,6 +32,19 @@ export const onUpdateAward = /* GraphQL */ `
       id
       name
       description
+      parentco
+      type
+      openforentries
+      deadline1
+      deadline2
+      deadline3
+      fee1
+      fee2
+      fee
+      eligibility
+      winnersannouncement
+      websitelink
+      notes
       image
       createdAt
       updatedAt
@@ -31,6 +57,19 @@ export const onDeleteAward = /* GraphQL */ `
       id
       name
       description
+      parentco
+      type
+      openforentries
+      deadline1
+      deadline2
+      deadline3
+      fee1
+      fee2
+      fee
+      eligibility
+      winnersannouncement
+      websitelink
+      notes
       image
       createdAt
       updatedAt

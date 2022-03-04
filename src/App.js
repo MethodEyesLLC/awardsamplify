@@ -6,6 +6,7 @@ import { listAwards } from './graphql/queries';
 import '@aws-amplify/ui-react/styles.css';
 import { createAward as createAwardMutation, deleteAward as deleteAwardMutation } from './graphql/mutations';
 import { Link } from "react-router-dom";
+import Header from "./components/header"
 const initialFormState = { name: '', description: '' }
 
 function App() {
@@ -29,16 +30,6 @@ function App() {
     setAwards(apiData.data.listAwards.items);
   }
 
-  async function createAward() {
-    if (!formData.name || !formData.description) return;
-    await API.graphql({ query: createAwardMutation, variables: { input: formData } });
-    if (formData.image) {
-      const image = await Storage.get(formData.image);
-      formData.image = image;
-    }
-    setAwards([ ...awards, formData ]);
-    setFormData(initialFormState);
-  }
 
   async function deleteAward({ id }) {
     const newAwardsArray = awards.filter(award => award.id !== id);
@@ -48,13 +39,69 @@ function App() {
 
 
   return (
+      <div >
+      <Header>
+            
+      </Header>
+        <div style={{paddingTop: "15vh", backgroundColor: "black"}}>
+
+
     <Authenticator>
+      
     {({ signOut, user }) => (
-    <div className="App">
-      <h1>My Awards App</h1>
-      <Link to="/addaward">Add Award Show</Link>
-      <div style={{marginBottom: 30}}>
-        {
+    <div className="HomePage" >
+      <div>
+
+      <div style={{marginBottom: "30", marginTop: "4vh"}}>
+
+  
+      </div>
+      <div className="homebuttoncontainer">
+
+     <a href='/seeawards'>
+      <div className="button1">
+      <div class='line'></div> 
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <Link to="/seeawards" className="link">See Award Shows</Link>
+      </div>
+      </a>
+
+      <a href='/addaward'>
+
+      <div className="button1">
+      <div class='line'></div> 
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+            
+      <Link className="link" to="/addaward">Add Award Show</Link>
+      </div>
+      </a>
+      <a onClick={signOut}>
+
+    
+      <div className="button1">
+      <div class='line'></div> 
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+            
+          <a style={{marginLeft: "17.5px"}}className="link" onClick={signOut}>Sign out</a>
+
+      </div>
+      </a>
+      </div>
+
+
+        {/* {
           awards.map(award => (
             <div key={award.id || award.name}>
               <h2>{award.name}</h2>
@@ -65,12 +112,21 @@ function App() {
               }
             </div>
           ))
-        }
+        } */}
       </div>
-      <button onClick={signOut}>Sign out</button>
+
     </div>
     )}
-    </Authenticator>
+    </Authenticator> 
+    </div>
+    <div style={{textAlign: "center", paddingTop: "3vh"}}>
+      <h2 style={{color: "#457D83"}}>
+        Built By Method Eyes, LLC
+      </h2>
+    </div>
+
+
+    </div>
     
   );
 }
