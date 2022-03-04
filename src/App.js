@@ -43,7 +43,7 @@ function App() {
       <Header>
             
       </Header>
-        <div style={{paddingTop: "15vh", backgroundColor: "black"}}>
+        <div style={{paddingTop: "50vh", backgroundColor: "black", paddingBottom: "10vh"}}>
 
 
     <Authenticator>
@@ -52,7 +52,7 @@ function App() {
     <div className="HomePage" >
       <div>
 
-      <div style={{marginBottom: "30", marginTop: "4vh"}}>
+      <div style={{}}>
 
   
       </div>

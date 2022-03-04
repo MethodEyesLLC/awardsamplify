@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { API, Storage } from 'aws-amplify';
-import { Authenticator } from '@aws-amplify/ui-react';
+import { Authenticator, IconArrowForwardIos } from '@aws-amplify/ui-react';
 import { listAwards } from '../graphql/queries';
 import '@aws-amplify/ui-react/styles.css';
 import { createAward as createAwardMutation, deleteAward as deleteAwardMutation } from '../graphql/mutations';
@@ -39,6 +39,7 @@ function SeeAwards () {
     const [awards, setAwards] = useState([]);
     const [singleaward, setsingleaward] = useState([])
     const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [sort, setSort] = useState("")
 
     useEffect(() => {
         fetchAwards();
@@ -75,7 +76,23 @@ function SeeAwards () {
     setAwards(newAwardsArray);
     await API.graphql({ query: deleteAwardMutation, variables: { input: { id } }});
   }
+  async function sortAwards(parameter) {
+    console.log(parameter)
+    if (parameter === "ascendingalphabetical") {
 
+      const sorted = [...awards].sort((a, b) => a.name.localeCompare(b.name))
+        console.log(sorted);
+        setAwards(sorted);
+  
+    }
+    if (parameter === "descendingalphabetical") {
+
+      const sorted = [...awards].sort((a, b) => b.name.localeCompare(a.name))
+      console.log(sorted);
+      setAwards(sorted);
+
+  }
+  }
 
     return (
    
@@ -106,8 +123,26 @@ function SeeAwards () {
 
 
           </div>
+           
 
+              <p> Sort</p>
+               
             
+            <select className="typedropdown" style={{width: "5vw"}}onChange={(e) => sortAwards(e.target.value)}>
+            
+            <option
+                value="">
+                 
+                </option>
+                <option
+                value="ascendingalphabetical">
+                  A-Z
+                </option>
+                <option value="descendingalphabetical">
+                  Z-A
+                </option>
+            </select>
+          
             <div className="showawardsdash">
 
                 {
