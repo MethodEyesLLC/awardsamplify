@@ -3,6 +3,7 @@ $delay1: .5s;
 $delay2: .9s;
 $distance: -1px;
 $primarycolor: #457D83;
+$secondary-color: #39204A;
 .button1 {
     width: 200px;
     height: 50px;
@@ -15,7 +16,7 @@ $primarycolor: #457D83;
 
 
 .line {
-  background: $primarycolor;
+  background: $secondary-color ;
   position: absolute;
   transition: none;
   transform:scale(0);
@@ -190,7 +191,7 @@ $primarycolor: #457D83;
 
 }
 .button3 {
-    width: 200ypx;
+    width: 200px;
     height: 50px;
     position:relative;
     border: solid rgba(255,255,255,0.3) 1px;

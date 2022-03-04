@@ -214,7 +214,7 @@ function SeeAwards () {
          <div className="awarddashitem" key={awards.id || awards.name}>
 
  
-           
+
 
         {/* <button style={{marginBottom: "2vh"}}onClick={() => deleteAward(award)}>Delete award</button> */}
         {
@@ -222,6 +222,7 @@ function SeeAwards () {
         }
         {/* <button style={{marginBottom: "2vh"}}onClick={() => togglePopup()}>Close Show</button> */}
         </div>
+
       </div>
     </div>
     

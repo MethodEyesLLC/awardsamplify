@@ -7,6 +7,8 @@ import '@aws-amplify/ui-react/styles.css';
 import { createAward as createAwardMutation, deleteAward as deleteAwardMutation } from './graphql/mutations';
 import { Link } from "react-router-dom";
 import Header from "./components/header"
+import './amplify.css'
+
 const initialFormState = { name: '', description: '' }
 
 function App() {
@@ -43,7 +45,7 @@ function App() {
       <Header>
             
       </Header>
-        <div style={{paddingTop: "50vh", backgroundColor: "black", paddingBottom: "10vh"}}>
+        <div style={{paddingTop: "40vh", backgroundColor: "#457D83", paddingBottom: "15vh"}}>
 
 
     <Authenticator>
@@ -119,11 +121,11 @@ function App() {
     )}
     </Authenticator> 
     </div>
-    <div style={{textAlign: "center", paddingTop: "3vh"}}>
-      <h2 style={{color: "#457D83"}}>
+    <footer style={{textAlign: "center", paddingTop: "3vh"}}>
+      <h2 style={{color: "white"}}>
         Built By Method Eyes, LLC
       </h2>
-    </div>
+    </footer>
 
 
     </div>

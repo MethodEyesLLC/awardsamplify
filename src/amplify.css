@@ -1,0 +1,46 @@
+
+
+:root {
+    
+     --primary-color: #457D83;
+     --secondary-color: #9ABA86;
+     --tertiary-color: #39204A;
+    --amplify-fonts-default-variable: "Open Sans";
+    --amplify-fonts-default-static: "Open Sans";
+    --amplify-primary-color: white;
+    --amplify-colors-font-primary: white;
+    --amplify-colors-font-secondary: white;
+    --amplify-colors-brand-primary-10: var(--primary-color);
+    --amplify-colors-brand-primary-20: var(--primary-color);
+    --amplify-colors-brand-primary-40: var(--primary-color);
+    --amplify-colors-brand-primary-60: var(--primary-color);
+    --amplify-colors-brand-primary-80: var(--primary-color);
+    --amplify-colors-brand-primary-90: var(--primary-color);
+    --amplify-colors-brand-primary-100: var(--primary-color);
+    --amplify-colors-brand-secondary-10: var(--secondary-color);
+    --amplify-colors-brand-secondary-20: var(--secondary-color);
+    --amplify-colors-brand-secondary-40: var(--secondary-color);
+    --amplify-colors-brand-secondary-60: var(--secondary-color);
+    --amplify-colors-brand-secondary-80: var(--secondary-color);
+    --amplify-colors-brand-secondary-90: var(--secondary-color);
+    --amplify-colors-brand-secondary-100: var(--secondary-color);
+    --amplify-colors-radii-small: 0;
+    --amplify-colors-radii-medium: 2px;
+    --amplify-colors-radii-large: 4px;
+    --amplify-colors-border-primary: var( --tertiary-color);
+    --amplify-colors-border-secondary: var( --tertiary-color);
+    --amplify-colors-border-tertiary: var( --tertiary-color);
+    --amplify-colors-background-primary: rgb(27, 26, 26);
+    --amplify-colors-background-secondary: rgb(27, 26, 26);
+    --amplify-components-tabs-item-border-color: var(--amplify-colors-neutral-60);
+  
+    --amplify-radii-small: 0;
+    --amplify-radii-medium: 0;
+    --amplify-radii-large: 0;
+    --amplify-space-small: 1rem;
+    --amplify-space-medium: 1.5rem;
+    --amplify-space-large: 2rem;
+    --amplify-border-widths-small: 2px;
+    --amplify-border-widths-medium: 4px;
+    --amplify-border-widths-large: 8px;
+  }
