@@ -79,7 +79,7 @@ export const getAgency = /* GraphQL */ `
 `;
 export const listAgencies = /* GraphQL */ `
   query ListAgencies(
-    $filter: ModelAwardFilterInput
+    $filter: ModelAgencyFilterInput
     $limit: Int
     $nextToken: String
   ) {
