@@ -8,6 +8,9 @@ import Amplify from 'aws-amplify';
 import config from './aws-exports';
 import AddAward from './components/addAward'
 import SeeAwards from './components/seeAwards'
+import AgencyList from './components/AgencyList'
+import AddAgency from './components/AddAgency'
+
 import {
   BrowserRouter,
   Routes,
@@ -26,6 +29,8 @@ render (
       <Route path ="/" element={<App />}/>
       <Route path="/addaward" element={<AddAward />} />
       <Route path="/seeawards" element={<SeeAwards />} />
+      <Route path="/agencylist" element={<AgencyList />} />
+      <Route path="/addagency" element={<AddAgency />} />
     </Routes>
   </BrowserRouter>,
     rootElement

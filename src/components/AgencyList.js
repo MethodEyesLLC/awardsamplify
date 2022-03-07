@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { API, Storage } from 'aws-amplify';
 import { Authenticator, IconArrowForwardIos } from '@aws-amplify/ui-react';
-import { listAwards } from '../graphql/queries';
+import { listAgencies } from '../graphql/queries';
 import '@aws-amplify/ui-react/styles.css';
-import { createAward as createAwardMutation, deleteAward as deleteAwardMutation } from '../graphql/mutations';
+import { createAgency as createAgencyMutation, deleteAgency as deleteagencyMutation } from '../graphql/mutations';
 import { Link } from "react-router-dom";
-import ShowAwards from './ShowAward'
 import Header from "./header"
 import Modal from 'react-modal';
 
@@ -36,19 +35,19 @@ const customStyles = {
 
 
 
-function SeeAwards () {
+function AgencyList () {
    let subtitle;
-    const [awards, setAwards] = useState([]);
-    const [singleaward, setsingleaward] = useState([])
+    const [agencies, setagencies] = useState([]);
+    const [singleagency, setsingleagency] = useState([])
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [sort, setSort] = useState("")
 
     useEffect(() => {
-        fetchAwards();
+        fetchagencies();
       }, []);
       function openModal(id) {
-        const newAwardsArray = awards.filter(award => award.id == id);
-        setsingleaward(newAwardsArray[0])
+        const newagenciesArray = agencies.filter(agency => agency.id == id);
+        setsingleagency(newagenciesArray[0])
         setIsOpen(true);
 
       }
@@ -61,37 +60,37 @@ function SeeAwards () {
       function closeModal() {
         setIsOpen(false);
       }
-  async function fetchAwards() {
-        const apiData = await API.graphql({ query: listAwards});
-        const awardsFromAPI = apiData.data.listAwards.items;
-        await Promise.all(awardsFromAPI.map(async award => {
-          if (award.image) {
-            const image = await Storage.get(award.image);
-            award.image = image;
+  async function fetchagencies() {
+        const apiData = await API.graphql({ query: listAgencies});
+        const agenciesFromAPI = apiData.data.listagencies.items;
+        await Promise.all(agenciesFromAPI.map(async agency => {
+          if (agency.image) {
+            const image = await Storage.get(agency.image);
+            agency.image = image;
           }
-          return award;
+          return agency;
         }))
-        setAwards(apiData.data.listAwards.items);
+        setagencies(apiData.data.listagencies.items);
       }
-  async function deleteAward({ id }) {
-    const newAwardsArray = awards.filter(award => award.id !== id);
-    setAwards(newAwardsArray);
-    await API.graphql({ query: deleteAwardMutation, variables: { input: { id } }});
+  async function deleteagency({ id }) {
+    const newagenciesArray = agencies.filter(agency => agency.id !== id);
+    setagencies(newagenciesArray);
+    await API.graphql({ query: deleteagencyMutation, variables: { input: { id } }});
   }
-  async function sortAwards(parameter) {
+  async function sortagencies(parameter) {
     console.log(parameter)
     if (parameter === "ascendingalphabetical") {
 
-      const sorted = [...awards].sort((a, b) => a.name.localeCompare(b.name))
+      const sorted = [...agencies].sort((a, b) => a.name.localeCompare(b.name))
         console.log(sorted);
-        setAwards(sorted);
+        setagencies(sorted);
   
     }
     if (parameter === "descendingalphabetical") {
 
-      const sorted = [...awards].sort((a, b) => b.name.localeCompare(a.name))
+      const sorted = [...agencies].sort((a, b) => b.name.localeCompare(a.name))
       console.log(sorted);
-      setAwards(sorted);
+      setagencies(sorted);
 
   }
   }
@@ -101,7 +100,7 @@ function SeeAwards () {
       <div className="AwardsShow">
         <div className="awardshowtopitem">
 
-          <h1>Award Show List</h1>
+          <h1>Agency Show List</h1>
           </div>
           <div className="awardshowtop">
       <a className="button1" href="/">
@@ -113,14 +112,14 @@ function SeeAwards () {
           <div class='line'></div>
           <Link className="seelink" to="/" >Back to Dashboard</Link>
       </a>   
-      <a className="button1" href="/addaward">
+      <a className="button1" href="/addagency">
       <div class='line'></div> 
           <div class='line'></div>
           <div class='line'></div>
           <div class='line'></div>
           <div class='line'></div>
           <div class='line'></div>
-        <Link className="seelink" to="/addaward">Add Award Show</Link>
+        <Link className="seelink" to="/addagency">Add Agency</Link>
       </a>   
 
 
@@ -130,7 +129,7 @@ function SeeAwards () {
               <p> Sort</p>
                
             
-            <select className="typedropdown" style={{width: "5vw"}}onChange={(e) => sortAwards(e.target.value)}>
+            <select className="typedropdown" style={{width: "5vw"}}onChange={(e) => sortagencies(e.target.value)}>
             
             <option
                 value="">
@@ -148,15 +147,15 @@ function SeeAwards () {
             <div className="showawardsdash">
 
                 {
-            awards.map(award => (
-                <div className="awardsdashitem" key={award.id || award.name}>
-                <h2>{award.name}</h2>
+            agencies.map(agency => (
+                <div className="awardsdashitem" key={agency.id || agency.name}>
+                <h2>{agency.name}</h2>
                 <h3>Description: </h3>
-                <p>{award.description}</p>
+                <p>{agency.description}</p>
                 <h3>First Deadline:</h3>
-                <p>{award.deadline1}</p>
+                <p>{agency.deadline1}</p>
                 
-                <button className="button4" onClick={() => openModal(award.id)}>More Information</button>
+                <button className="button4" onClick={() => openModal(agency.id)}>More Information</button>
 
 
                 <Modal
@@ -168,41 +167,22 @@ function SeeAwards () {
                 >
 
                   <div style={{color: "black", fontSize: "50%"}}>
-                        <h2 style={{fontSize: "20px"}}>{singleaward.name}</h2>
+                        <h2 style={{fontSize: "20px"}}>{singleagency.name}</h2>
                         <h3>Parent Company:</h3>
-                        <p>{singleaward.parentco}</p>
-                        <h3>Type of Show:</h3>
-                        <p>{singleaward.type}</p>
-                        <h3>Open for Entries Date:</h3>
-                        <p>{singleaward.openforentries}</p>
-                        <h3>Deadline 1:</h3>
-                        <p>{singleaward.deadline1}</p>
-                        <h3>Fee 1:</h3>
-                        <p>{singleaward.fee}</p>
-                        <h3>Deadline 2:</h3>
-                        <p>{singleaward.deadline2}</p>
-                        <h3>Fee 2:</h3>
-                        <p>{singleaward.fee1}</p>
-                        <h3>Deadline 3:</h3>
-                        <p>{singleaward.deadline3}</p>
-                        <h3>Fee 3:</h3>
-                        <p>{singleaward.fee2}</p>
-                        <h3>Eligibility Period:</h3>
-                        <p>{singleaward.eligibility}</p>
-                        <h3>Winner's Announcement:</h3>
-                        <p>{singleaward.winnersannouncement}</p>
+                        <p>{singleagency.parentco}</p>
+                        <h3>Type of Agency:</h3>
                         <h3>Website Link:</h3>
-                        <p>{singleaward.websitelink}</p>
+                        <p>{singleagency.websitelink}</p>
                         <h3>Additional Notes:</h3>
-                        <p>{singleaward.notes}</p>
+                        <p>{singleagency.notes}</p>
 
                         <button className="button4" onClick={closeModal}>Close</button>
                         </div>
 
                 </Modal>
-                <button className="button4"style={{marginBottom: "2vh"}}onClick={() => deleteAward(award)}>Delete award</button>
+                <button className="button4"style={{marginBottom: "2vh"}}onClick={() => deleteagency(agency)}>Delete agency</button>
                 {
-                    award.image && <img src={award.image} style={{width:400}} />
+                    agency.image && <img src={agency.image} style={{width:400}} />
                 }
 
                 </div>
@@ -213,14 +193,14 @@ function SeeAwards () {
           )
 
         }
-         <div className="awarddashitem" key={awards.id || awards.name}>
+         <div className="awarddashitem" key={agencies.id || agencies.name}>
 
  
 
 
-        {/* <button style={{marginBottom: "2vh"}}onClick={() => deleteAward(award)}>Delete award</button> */}
+        {/* <button style={{marginBottom: "2vh"}}onClick={() => deleteagency(agency)}>Delete agency</button> */}
         {
-          awards.image && <img src={awards.image}  />
+          agencies.image && <img src={agencies.image}  />
         }
         {/* <button style={{marginBottom: "2vh"}}onClick={() => togglePopup()}>Close Show</button> */}
         </div>
@@ -231,4 +211,4 @@ function SeeAwards () {
     )
 }
 
-export default SeeAwards; 
+export default AgencyList; 

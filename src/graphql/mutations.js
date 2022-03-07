@@ -85,3 +85,60 @@ export const deleteAward = /* GraphQL */ `
     }
   }
 `;
+export const createAgency = /* GraphQL */ `
+  mutation CreateAgency(
+    $input: CreateAgencyInput!
+    $condition: ModelAgencyConditionInput
+  ) {
+    createAgency(input: $input, condition: $condition) {
+      id
+      name
+      description
+      parentco
+      type
+      websitelink
+      notes
+      image
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateAgency = /* GraphQL */ `
+  mutation UpdateAgency(
+    $input: UpdateAgencyInput!
+    $condition: ModelAgencyConditionInput
+  ) {
+    updateAgency(input: $input, condition: $condition) {
+      id
+      name
+      description
+      parentco
+      type
+      websitelink
+      notes
+      image
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteAgency = /* GraphQL */ `
+  mutation DeleteAgency(
+    $input: DeleteAgencyInput!
+    $condition: ModelAgencyConditionInput
+  ) {
+    deleteAgency(input: $input, condition: $condition) {
+      id
+      name
+      description
+      parentco
+      type
+      websitelink
+      notes
+      image
+      createdAt
+      updatedAt
+    }
+  }
+`;

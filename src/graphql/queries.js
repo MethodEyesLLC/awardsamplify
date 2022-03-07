@@ -59,3 +59,44 @@ export const listAwards = /* GraphQL */ `
     }
   }
 `;
+
+export const getAgency = /* GraphQL */ `
+  query getAgency($id: ID!) {
+    
+    getAgency(id: $id) {
+      id
+      name
+      description
+      parentco
+      type
+      websitelink
+      notes
+      image
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listAgencies = /* GraphQL */ `
+  query ListAgencies(
+    $filter: ModelAwardFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAgencies(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        description
+        parentco
+        type
+        websitelink
+        notes
+        image
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;

@@ -84,6 +84,26 @@ function App() {
             
       <Link className="link" to="/addaward">Add Award Show</Link>
       </div>
+      <div className="button1">
+      <div class='line'></div> 
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+            
+      <Link className="link" to="/addagency">Add Agency</Link>
+      </div>
+      <div className="button1">
+      <div class='line'></div> 
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+            
+      <Link className="link" to="/agencylist">Agency List</Link>
+      </div>
       </a>
       <a onClick={signOut}>
 
@@ -123,7 +143,7 @@ function App() {
     </div>
     <footer style={{textAlign: "center", paddingTop: "3vh"}}>
       <h2 style={{color: "white"}}>
-        Built By Method Eyes, LLC
+        Built By James Lenahan
       </h2>
     </footer>
 
