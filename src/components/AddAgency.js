@@ -9,9 +9,7 @@ import { Link } from "react-router-dom";
 import '../buttons.scss'
 import { createAgency as createAgencyMutation, deleteAgency as deleteAgencyMutation } from '../graphql/mutations';
 const initialFormState = 
-        { name: '', description: '', parentco: '', type: '', openforentries: '',
-          deadline1: '', deadline2: '', deadline3: '', fee1: '', fee2: '', fee: '',
-          eligibility: '', winnersannouncement: '', websitelink: '', notes: ''
+        { name: '', description: '', parentco: '', type: '',  websitelink: '', notes: ''
         }
 
 function AddAgency() {

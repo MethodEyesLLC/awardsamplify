@@ -45,7 +45,8 @@ function AgencyList () {
     useEffect(() => {
         fetchagencies();
       }, []);
-      function openModal(id) {
+      
+    function openModal(id) {
         const newagenciesArray = agencies.filter(agency => agency.id == id);
         setsingleagency(newagenciesArray[0])
         setIsOpen(true);
@@ -62,7 +63,8 @@ function AgencyList () {
       }
   async function fetchagencies() {
         const apiData = await API.graphql({ query: listAgencies});
-        const agenciesFromAPI = apiData.data.listagencies.items;
+      
+        const agenciesFromAPI = apiData.data.listAgencies.items;
         await Promise.all(agenciesFromAPI.map(async agency => {
           if (agency.image) {
             const image = await Storage.get(agency.image);
@@ -70,7 +72,7 @@ function AgencyList () {
           }
           return agency;
         }))
-        setagencies(apiData.data.listagencies.items);
+        setagencies(apiData.data.listAgencies.items);
       }
   async function deleteagency({ id }) {
     const newagenciesArray = agencies.filter(agency => agency.id !== id);
@@ -156,7 +158,15 @@ function AgencyList () {
                 <p>{agency.deadline1}</p>
                 
                 <button className="button4" onClick={() => openModal(agency.id)}>More Information</button>
+                <button className="button4" >
 
+                <Link
+               
+                 to='/showagency'
+                  state={{ agency: agency }}
+                >Show Agency Information For {agency.name}
+                </Link>
+                </button>
 
                 <Modal
                   isOpen={modalIsOpen}
@@ -175,12 +185,29 @@ function AgencyList () {
                         <p>{singleagency.websitelink}</p>
                         <h3>Additional Notes:</h3>
                         <p>{singleagency.notes}</p>
+                        {console.log(singleagency)}
+                        <button className="button4">
+                        <Link
+                        activeClassName="button4"
+                        to='/awardagencydash'
+                
+                          state={{ id: singleagency }}
+
+
+                     
+                      >Add Award to {singleagency.name}
+                      </Link>
+
+
+                        </button>
+
 
                         <button className="button4" onClick={closeModal}>Close</button>
                         </div>
 
                 </Modal>
-                <button className="button4"style={{marginBottom: "2vh"}}onClick={() => deleteagency(agency)}>Delete agency</button>
+    
+
                 {
                     agency.image && <img src={agency.image} style={{width:400}} />
                 }

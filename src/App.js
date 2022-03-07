@@ -60,33 +60,35 @@ function App() {
       </div>
       <div className="homebuttoncontainer">
 
-     <a href='/seeawards'>
-      <div className="button1">
-      <div class='line'></div> 
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-          <Link to="/seeawards" className="link">See Award Shows</Link>
-      </div>
-      </a>
+        <a href='/seeawards'>
+          <div className="button1">
+          <div class='line'></div> 
+              <div class='line'></div>
+              <div class='line'></div>
+              <div class='line'></div>
+              <div class='line'></div>
+              <div class='line'></div>
+              <Link to="/seeawards" className="link">See Award Shows</Link>
+          </div>
+          </a>
 
-      <a href='/addaward'>
+        <a href='/addaward'>
 
-      <div className="button1">
-      <div class='line'></div> 
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-            
-      <Link className="link" to="/addaward">Add Award Show</Link>
-      </div>
-      <div className="button1">
-      <div class='line'></div> 
-          <div class='line'></div>
+          <div className="button1">
+          <div class='line'></div> 
+              <div class='line'></div>
+              <div class='line'></div>
+              <div class='line'></div>
+              <div class='line'></div>
+              <div class='line'></div>
+                
+          <Link className="link" to="/addaward">Add Award Show</Link>
+          </div>
+          </a>
+        <a href='/addagency'>
+        <div className="button1">
+        <div class='line'></div> 
+            <div class='line'></div>
           <div class='line'></div>
           <div class='line'></div>
           <div class='line'></div>
@@ -94,6 +96,9 @@ function App() {
             
       <Link className="link" to="/addagency">Add Agency</Link>
       </div>
+      </a>
+      
+      <a href='/agencylist'>
       <div className="button1">
       <div class='line'></div> 
           <div class='line'></div>
@@ -105,16 +110,16 @@ function App() {
       <Link className="link" to="/agencylist">Agency List</Link>
       </div>
       </a>
-      <a onClick={signOut}>
+          <a onClick={signOut}>
 
-    
-      <div className="button1">
-      <div class='line'></div> 
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
+        
+          <div className="button1">
+          <div class='line'></div> 
+              <div class='line'></div>
+              <div class='line'></div>
+              <div class='line'></div>
+              <div class='line'></div>
+              <div class='line'></div>
             
           <a style={{marginLeft: "17.5px"}}className="link" onClick={signOut}>Sign out</a>
 

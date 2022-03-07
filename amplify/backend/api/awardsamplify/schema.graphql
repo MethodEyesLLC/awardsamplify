@@ -20,4 +20,19 @@ type Award @model {
   websitelink: String
   notes: String
   image: String
+  agencies: [Agency] @manyToMany(relationName: "AgencyAwards")
 }
+
+
+type Agency @model {
+  id: ID!
+  name: String!
+  description: String
+  parentco: String
+  type: String
+  websitelink: String
+  notes: String
+  image: String
+  awards: [Award] @manyToMany(relationName: "AgencyAwards")
+}
+

@@ -6,11 +6,12 @@ import { render } from "react-dom";
 import reportWebVitals from './reportWebVitals';
 import Amplify from 'aws-amplify';
 import config from './aws-exports';
-import AddAward from './components/addAward'
-import SeeAwards from './components/seeAwards'
+import AddAward from './components/AddAward'
+import SeeAwards from './components/AwardsList'
 import AgencyList from './components/AgencyList'
 import AddAgency from './components/AddAgency'
-
+import AddAwardToAgency from './components/AddAwardToAgency';
+import ShowAgency from './components/ShowAgency';
 import {
   BrowserRouter,
   Routes,
@@ -31,6 +32,8 @@ render (
       <Route path="/seeawards" element={<SeeAwards />} />
       <Route path="/agencylist" element={<AgencyList />} />
       <Route path="/addagency" element={<AddAgency />} />
+      <Route path="/awardagencydash" element={<AddAwardToAgency />} />
+      <Route path='/showagency' element={<ShowAgency/> }/>
     </Routes>
   </BrowserRouter>,
     rootElement
