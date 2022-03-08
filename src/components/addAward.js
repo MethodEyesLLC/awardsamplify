@@ -7,6 +7,8 @@ import '@aws-amplify/ui-react/styles.css';
 import { Link } from "react-router-dom";
 import '../buttons.scss'
 import { createAward as createAwardMutation, deleteAward as deleteAwardMutation } from '../graphql/mutations';
+
+//change name
 const initialFormState = 
         { name: '', description: '', parentco: '', type: '', openforentries: '',
           deadline1: '', deadline2: '', deadline3: '', fee1: '', fee2: '', fee: '',

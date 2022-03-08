@@ -1,6 +1,138 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createAgency = /* GraphQL */ `
+  mutation CreateAgency(
+    $input: CreateAgencyInput!
+    $condition: ModelAgencyConditionInput
+  ) {
+    createAgency(input: $input, condition: $condition) {
+      id
+      name
+      description
+      parentco
+      type
+      websitelink
+      notes
+      image
+      awards {
+        items {
+          id
+          name
+          description
+          parentco
+          type
+          openforentries
+          deadline1
+          deadline2
+          deadline3
+          fee1
+          fee2
+          fee
+          eligibility
+          winnersannouncement
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+          agencyAwardsId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateAgency = /* GraphQL */ `
+  mutation UpdateAgency(
+    $input: UpdateAgencyInput!
+    $condition: ModelAgencyConditionInput
+  ) {
+    updateAgency(input: $input, condition: $condition) {
+      id
+      name
+      description
+      parentco
+      type
+      websitelink
+      notes
+      image
+      awards {
+        items {
+          id
+          name
+          description
+          parentco
+          type
+          openforentries
+          deadline1
+          deadline2
+          deadline3
+          fee1
+          fee2
+          fee
+          eligibility
+          winnersannouncement
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+          agencyAwardsId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteAgency = /* GraphQL */ `
+  mutation DeleteAgency(
+    $input: DeleteAgencyInput!
+    $condition: ModelAgencyConditionInput
+  ) {
+    deleteAgency(input: $input, condition: $condition) {
+      id
+      name
+      description
+      parentco
+      type
+      websitelink
+      notes
+      image
+      awards {
+        items {
+          id
+          name
+          description
+          parentco
+          type
+          openforentries
+          deadline1
+          deadline2
+          deadline3
+          fee1
+          fee2
+          fee
+          eligibility
+          winnersannouncement
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+          agencyAwardsId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createAward = /* GraphQL */ `
   mutation CreateAward(
     $input: CreateAwardInput!
@@ -24,25 +156,34 @@ export const createAward = /* GraphQL */ `
       websitelink
       notes
       image
-      agencies {
+      agency {
+        id
+        name
+        description
+        parentco
+        type
+        websitelink
+        notes
+        image
+        awards {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      trophy {
         items {
           id
-          awardID
-          agencyID
+          content
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
+          awardTrophyId
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      agencyAwardsId
     }
   }
 `;
@@ -69,25 +210,34 @@ export const updateAward = /* GraphQL */ `
       websitelink
       notes
       image
-      agencies {
+      agency {
+        id
+        name
+        description
+        parentco
+        type
+        websitelink
+        notes
+        image
+        awards {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      trophy {
         items {
           id
-          awardID
-          agencyID
+          content
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
+          awardTrophyId
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      agencyAwardsId
     }
   }
 `;
@@ -114,145 +264,44 @@ export const deleteAward = /* GraphQL */ `
       websitelink
       notes
       image
-      agencies {
+      agency {
+        id
+        name
+        description
+        parentco
+        type
+        websitelink
+        notes
+        image
+        awards {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      trophy {
         items {
           id
-          awardID
-          agencyID
+          content
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
+          awardTrophyId
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      agencyAwardsId
     }
   }
 `;
-export const createAgency = /* GraphQL */ `
-  mutation CreateAgency(
-    $input: CreateAgencyInput!
-    $condition: ModelAgencyConditionInput
+export const createTrophy = /* GraphQL */ `
+  mutation CreateTrophy(
+    $input: CreateTrophyInput!
+    $condition: ModelTrophyConditionInput
   ) {
-    createAgency(input: $input, condition: $condition) {
+    createTrophy(input: $input, condition: $condition) {
       id
-      name
-      description
-      parentco
-      type
-      websitelink
-      notes
-      image
-      awards {
-        items {
-          id
-          awardID
-          agencyID
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const updateAgency = /* GraphQL */ `
-  mutation UpdateAgency(
-    $input: UpdateAgencyInput!
-    $condition: ModelAgencyConditionInput
-  ) {
-    updateAgency(input: $input, condition: $condition) {
-      id
-      name
-      description
-      parentco
-      type
-      websitelink
-      notes
-      image
-      awards {
-        items {
-          id
-          awardID
-          agencyID
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const deleteAgency = /* GraphQL */ `
-  mutation DeleteAgency(
-    $input: DeleteAgencyInput!
-    $condition: ModelAgencyConditionInput
-  ) {
-    deleteAgency(input: $input, condition: $condition) {
-      id
-      name
-      description
-      parentco
-      type
-      websitelink
-      notes
-      image
-      awards {
-        items {
-          id
-          awardID
-          agencyID
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const createAgencyAwards = /* GraphQL */ `
-  mutation CreateAgencyAwards(
-    $input: CreateAgencyAwardsInput!
-    $condition: ModelAgencyAwardsConditionInput
-  ) {
-    createAgencyAwards(input: $input, condition: $condition) {
-      id
-      awardID
-      agencyID
       award {
         id
         name
@@ -271,52 +320,39 @@ export const createAgencyAwards = /* GraphQL */ `
         websitelink
         notes
         image
-        agencies {
+        agency {
+          id
+          name
+          description
+          parentco
+          type
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+        }
+        trophy {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
+        agencyAwardsId
       }
-      agency {
-        id
-        name
-        description
-        parentco
-        type
-        websitelink
-        notes
-        image
-        awards {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
+      content
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      awardTrophyId
     }
   }
 `;
-export const updateAgencyAwards = /* GraphQL */ `
-  mutation UpdateAgencyAwards(
-    $input: UpdateAgencyAwardsInput!
-    $condition: ModelAgencyAwardsConditionInput
+export const updateTrophy = /* GraphQL */ `
+  mutation UpdateTrophy(
+    $input: UpdateTrophyInput!
+    $condition: ModelTrophyConditionInput
   ) {
-    updateAgencyAwards(input: $input, condition: $condition) {
+    updateTrophy(input: $input, condition: $condition) {
       id
-      awardID
-      agencyID
       award {
         id
         name
@@ -335,52 +371,39 @@ export const updateAgencyAwards = /* GraphQL */ `
         websitelink
         notes
         image
-        agencies {
+        agency {
+          id
+          name
+          description
+          parentco
+          type
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+        }
+        trophy {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
+        agencyAwardsId
       }
-      agency {
-        id
-        name
-        description
-        parentco
-        type
-        websitelink
-        notes
-        image
-        awards {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
+      content
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      awardTrophyId
     }
   }
 `;
-export const deleteAgencyAwards = /* GraphQL */ `
-  mutation DeleteAgencyAwards(
-    $input: DeleteAgencyAwardsInput!
-    $condition: ModelAgencyAwardsConditionInput
+export const deleteTrophy = /* GraphQL */ `
+  mutation DeleteTrophy(
+    $input: DeleteTrophyInput!
+    $condition: ModelTrophyConditionInput
   ) {
-    deleteAgencyAwards(input: $input, condition: $condition) {
+    deleteTrophy(input: $input, condition: $condition) {
       id
-      awardID
-      agencyID
       award {
         id
         name
@@ -399,40 +422,29 @@ export const deleteAgencyAwards = /* GraphQL */ `
         websitelink
         notes
         image
-        agencies {
+        agency {
+          id
+          name
+          description
+          parentco
+          type
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+        }
+        trophy {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
+        agencyAwardsId
       }
-      agency {
-        id
-        name
-        description
-        parentco
-        type
-        websitelink
-        notes
-        image
-        awards {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
+      content
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      awardTrophyId
     }
   }
 `;

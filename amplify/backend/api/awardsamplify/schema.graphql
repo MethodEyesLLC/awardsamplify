@@ -2,6 +2,18 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
+type Agency @model {
+  id: ID!
+  name: String!
+  description: String
+  parentco: String
+  type: String
+  websitelink: String
+  notes: String
+  image: String
+  awards: [Award] @hasMany
+}
+
 type Award @model {
   id: ID!
   name: String!
@@ -20,19 +32,12 @@ type Award @model {
   websitelink: String
   notes: String
   image: String
-  agencies: [Agency] @manyToMany(relationName: "AgencyAwards")
+  agency: Agency @belongsTo
+  trophy: [Trophy] @hasMany
 }
 
-
-type Agency @model {
+type Trophy @model {
   id: ID!
-  name: String!
-  description: String
-  parentco: String
-  type: String
-  websitelink: String
-  notes: String
-  image: String
-  awards: [Award] @manyToMany(relationName: "AgencyAwards")
+  award: Award @belongsTo
+  content: String!
 }
-

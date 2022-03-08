@@ -1,6 +1,129 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateAgency = /* GraphQL */ `
+  subscription OnCreateAgency {
+    onCreateAgency {
+      id
+      name
+      description
+      parentco
+      type
+      websitelink
+      notes
+      image
+      awards {
+        items {
+          id
+          name
+          description
+          parentco
+          type
+          openforentries
+          deadline1
+          deadline2
+          deadline3
+          fee1
+          fee2
+          fee
+          eligibility
+          winnersannouncement
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+          agencyAwardsId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateAgency = /* GraphQL */ `
+  subscription OnUpdateAgency {
+    onUpdateAgency {
+      id
+      name
+      description
+      parentco
+      type
+      websitelink
+      notes
+      image
+      awards {
+        items {
+          id
+          name
+          description
+          parentco
+          type
+          openforentries
+          deadline1
+          deadline2
+          deadline3
+          fee1
+          fee2
+          fee
+          eligibility
+          winnersannouncement
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+          agencyAwardsId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteAgency = /* GraphQL */ `
+  subscription OnDeleteAgency {
+    onDeleteAgency {
+      id
+      name
+      description
+      parentco
+      type
+      websitelink
+      notes
+      image
+      awards {
+        items {
+          id
+          name
+          description
+          parentco
+          type
+          openforentries
+          deadline1
+          deadline2
+          deadline3
+          fee1
+          fee2
+          fee
+          eligibility
+          winnersannouncement
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+          agencyAwardsId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateAward = /* GraphQL */ `
   subscription OnCreateAward {
     onCreateAward {
@@ -21,25 +144,34 @@ export const onCreateAward = /* GraphQL */ `
       websitelink
       notes
       image
-      agencies {
+      agency {
+        id
+        name
+        description
+        parentco
+        type
+        websitelink
+        notes
+        image
+        awards {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      trophy {
         items {
           id
-          awardID
-          agencyID
+          content
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
+          awardTrophyId
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      agencyAwardsId
     }
   }
 `;
@@ -63,25 +195,34 @@ export const onUpdateAward = /* GraphQL */ `
       websitelink
       notes
       image
-      agencies {
+      agency {
+        id
+        name
+        description
+        parentco
+        type
+        websitelink
+        notes
+        image
+        awards {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      trophy {
         items {
           id
-          awardID
-          agencyID
+          content
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
+          awardTrophyId
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      agencyAwardsId
     }
   }
 `;
@@ -105,133 +246,41 @@ export const onDeleteAward = /* GraphQL */ `
       websitelink
       notes
       image
-      agencies {
+      agency {
+        id
+        name
+        description
+        parentco
+        type
+        websitelink
+        notes
+        image
+        awards {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      trophy {
         items {
           id
-          awardID
-          agencyID
+          content
           createdAt
           updatedAt
-          _version
-          _deleted
-          _lastChangedAt
+          awardTrophyId
         }
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      agencyAwardsId
     }
   }
 `;
-export const onCreateAgency = /* GraphQL */ `
-  subscription OnCreateAgency {
-    onCreateAgency {
+export const onCreateTrophy = /* GraphQL */ `
+  subscription OnCreateTrophy {
+    onCreateTrophy {
       id
-      name
-      description
-      parentco
-      type
-      websitelink
-      notes
-      image
-      awards {
-        items {
-          id
-          awardID
-          agencyID
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onUpdateAgency = /* GraphQL */ `
-  subscription OnUpdateAgency {
-    onUpdateAgency {
-      id
-      name
-      description
-      parentco
-      type
-      websitelink
-      notes
-      image
-      awards {
-        items {
-          id
-          awardID
-          agencyID
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onDeleteAgency = /* GraphQL */ `
-  subscription OnDeleteAgency {
-    onDeleteAgency {
-      id
-      name
-      description
-      parentco
-      type
-      websitelink
-      notes
-      image
-      awards {
-        items {
-          id
-          awardID
-          agencyID
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onCreateAgencyAwards = /* GraphQL */ `
-  subscription OnCreateAgencyAwards {
-    onCreateAgencyAwards {
-      id
-      awardID
-      agencyID
       award {
         id
         name
@@ -250,49 +299,36 @@ export const onCreateAgencyAwards = /* GraphQL */ `
         websitelink
         notes
         image
-        agencies {
+        agency {
+          id
+          name
+          description
+          parentco
+          type
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+        }
+        trophy {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
+        agencyAwardsId
       }
-      agency {
-        id
-        name
-        description
-        parentco
-        type
-        websitelink
-        notes
-        image
-        awards {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
+      content
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      awardTrophyId
     }
   }
 `;
-export const onUpdateAgencyAwards = /* GraphQL */ `
-  subscription OnUpdateAgencyAwards {
-    onUpdateAgencyAwards {
+export const onUpdateTrophy = /* GraphQL */ `
+  subscription OnUpdateTrophy {
+    onUpdateTrophy {
       id
-      awardID
-      agencyID
       award {
         id
         name
@@ -311,49 +347,36 @@ export const onUpdateAgencyAwards = /* GraphQL */ `
         websitelink
         notes
         image
-        agencies {
+        agency {
+          id
+          name
+          description
+          parentco
+          type
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+        }
+        trophy {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
+        agencyAwardsId
       }
-      agency {
-        id
-        name
-        description
-        parentco
-        type
-        websitelink
-        notes
-        image
-        awards {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
+      content
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      awardTrophyId
     }
   }
 `;
-export const onDeleteAgencyAwards = /* GraphQL */ `
-  subscription OnDeleteAgencyAwards {
-    onDeleteAgencyAwards {
+export const onDeleteTrophy = /* GraphQL */ `
+  subscription OnDeleteTrophy {
+    onDeleteTrophy {
       id
-      awardID
-      agencyID
       award {
         id
         name
@@ -372,40 +395,29 @@ export const onDeleteAgencyAwards = /* GraphQL */ `
         websitelink
         notes
         image
-        agencies {
+        agency {
+          id
+          name
+          description
+          parentco
+          type
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+        }
+        trophy {
           nextToken
-          startedAt
         }
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
+        agencyAwardsId
       }
-      agency {
-        id
-        name
-        description
-        parentco
-        type
-        websitelink
-        notes
-        image
-        awards {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
+      content
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      awardTrophyId
     }
   }
 `;

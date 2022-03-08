@@ -6,12 +6,13 @@ import { render } from "react-dom";
 import reportWebVitals from './reportWebVitals';
 import Amplify from 'aws-amplify';
 import config from './aws-exports';
-import AddAward from './components/AddAward'
+import AddAward from './components/AddAward.js'
 import SeeAwards from './components/AwardsList'
 import AgencyList from './components/AgencyList'
 import AddAgency from './components/AddAgency'
 import AddAwardToAgency from './components/AddAwardToAgency';
 import ShowAgency from './components/ShowAgency';
+
 import {
   BrowserRouter,
   Routes,
