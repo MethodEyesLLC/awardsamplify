@@ -18,7 +18,7 @@ import {
   Route,
 } from "react-router-dom";
 
-
+//edrpgjh
 Amplify.configure(config);
 
 const rootElement = document.getElementById("root");
