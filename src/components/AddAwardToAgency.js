@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { API, Storage } from 'aws-amplify';
-import { Authenticator, IconArrowForwardIos } from '@aws-amplify/ui-react';
+import { Authenticator, IconArrowForwardIos, IconArrowUpward } from '@aws-amplify/ui-react';
 import { listAwards } from '../graphql/queries';
 import '@aws-amplify/ui-react/styles.css';
-import { createAgency, createAgencyAwards } from '../graphql/mutations';
+import { updateAward } from '../graphql/mutations';
 import { Link, useLocation } from "react-router-dom";
 import ShowAwards from './ShowAward'
 import Header from "./header"
@@ -86,20 +86,25 @@ function AddAwardToAgency () {
         }))
         setAwards(apiData.data.listAwards.items);
       }
+
+      
   async function AddToAgency(awardid) {
     console.log(awardid.id)
-    setFormData({'awardID': awardid.id, 'agencyID': id.id})
-    // setFormData({...formData, 'agency': id})
-    // setFormData({...formData, 'award': awardid})
-    console.log(formData)
-    let test = {'awardID': awardid.id,
-                'agencyID': id.id}
-    console.log(test)
-        // if (!formData.name || !formData.description) return;
-      await API.graphql({ query: createAgencyAwards, variables: { input: test } });
 
-            
-            
+    let agencyid = id.id
+    let awardidproper = awardid.id
+    console.log(agencyid)
+    console.log(awardid)
+
+        // if (!formData.name || !formData.description) return;
+      await API.graphql({ query: updateAward, variables: { input:{
+        id: awardidproper,
+        agencyAwardsId: agencyid
+    
+      }
+
+    }})
+
         if (formData.image) {
           const image = await Storage.get(formData.image);
           formData.image = image;

@@ -156,7 +156,7 @@ function AgencyList () {
                 <p>{agency.description}</p>
                 <h3>First Deadline:</h3>
                 <p>{agency.deadline1}</p>
-                
+                  {console.log(agency)}
                 <button className="button4" onClick={() => openModal(agency.id)}>More Information</button>
                 <button className="button4" >
 
@@ -196,6 +196,8 @@ function AgencyList () {
 
                      
                       >Add Award to {singleagency.name}
+                       <button style={{marginBottom: "2vh"}}onClick={() => deleteagency(agency)}>Delete agency</button>
+
                       </Link>
 
 
@@ -225,7 +227,6 @@ function AgencyList () {
  
 
 
-        {/* <button style={{marginBottom: "2vh"}}onClick={() => deleteagency(agency)}>Delete agency</button> */}
         {
           agencies.image && <img src={agencies.image}  />
         }

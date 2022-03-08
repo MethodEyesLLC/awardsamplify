@@ -63,13 +63,13 @@ function AddAgency() {
         <input  
         className="forminputfield"
         onChange={e => setFormData({ ...formData, 'name': e.target.value})}
-        placeholder="Award name"
+        placeholder="Agency name"
         value={formData.name}
       />
       <input
           className="forminputfield"
         onChange={e => setFormData({ ...formData, 'description': e.target.value})}
-        placeholder="Award description"
+        placeholder="Agency description"
         value={formData.description}
       />
       <input
@@ -81,7 +81,7 @@ function AddAgency() {
       <select
           className="typedropdown"
         onChange={e => setFormData({ ...formData, 'type': e.target.value})}
-        placeholder="Award Type"
+        placeholder="Agency Type"
         value={formData.type}>
           <option value="" disabled selected>
           Type of Award

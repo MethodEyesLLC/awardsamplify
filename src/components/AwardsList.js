@@ -95,7 +95,7 @@ function SeeAwards () {
 
   }
   }
-
+  console.log(awards)
     return (
    
       <div className="AwardsShow">
