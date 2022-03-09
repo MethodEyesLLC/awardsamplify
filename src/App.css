@@ -1,5 +1,5 @@
 * {
-  color: white;
+
 
 }
 .HomePage {
@@ -26,7 +26,7 @@ h3 {
 }
 
 .App-link {
-  color: black;
+  /* color: black; */
 }
 
 @keyframes App-logo-spin {
@@ -43,7 +43,7 @@ h3 {
 :root {
 	/* Base font size */
 	font-size: 10px;
-
+  color: white;
 	/* Heading height variable*/
 	--heading-height: 30em;
   --primary-color: #457D83;
@@ -155,6 +155,7 @@ h1 {
 .AwardsShow {
   padding-left: 20vw;
   padding-right: 20vw;
+  color: white;
 
 
 
@@ -163,6 +164,7 @@ h1 {
 
   display: flex;
   justify-content: space-between;
+  color: white;
 }
 .awardshowtopitem {
   margin-top: -5vh;
@@ -247,7 +249,40 @@ input[type="file"] {
   display: none;
 }
 
+.showagencypage{
+  display: inline-flex;
+  margin-top: 7.5vh;
+  margin-right: 7.5vw;
+  margin-left: 7.5vw;
+  width: 85vw;
 
+
+}
+.showagencypanelleft {
+  width: 50vw;
+  background-color: rgb(44, 43, 43);
+  text-align: center;
+  font-size: 1vh;
+  text-decoration: underline
+}
+
+.showagencypanelright {
+  width: 50vw;
+  background-color: rgb(195, 195, 216);
+  text-align: center;
+  font-size: 1vh;
+  color: rgb(31, 27, 27);
+  
+}
+
+.showagencypage2{
+  height: 50vh;
+  margin-left: 7.5vw;
+  margin-right: 7.5vw;
+  width: 85vw;
+  
+  
+}
 
 @media screen and (max-width:1300px) {
   .awardwrapper {

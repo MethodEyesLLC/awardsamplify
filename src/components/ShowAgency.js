@@ -38,6 +38,7 @@ function ShowAgency () {
           }
           return agency;
         }))
+        console.log(apiData.data.getAgency)
         setagencies(apiData.data.getAgency.awards.items);
       }
       async function deleteAgencyAward({ id }) {
@@ -57,37 +58,63 @@ function ShowAgency () {
         } }});
       }
     return(
-                  
-      <div className="showawardsdash">
+      <div style={{}}>
+                  <div className="showagencypage">
+                    <div className="showagencypanelleft">
+                      <ul>
+                        Name:
+                      </ul>
+                      <ul>
+                        Description:
+                      </ul>
+                      <ul>
+                        Parent Company:
+                      </ul>
+                      <ul>
+                        Type of Agency:
+                      </ul>
+                      <ul>
+                        Website Link:
+                      </ul>
 
-      {
-        agencies.map(agency => (
-            <div className="awardsdashitem" key={agency.id || agency.name}>
-            <h2>{agency.name}</h2>
-            <h3>Description: </h3>
-            <p>{agency.description}</p>
-            <h3>First Deadline:</h3>
-            <p>{agency.deadline1}</p>
-      
-            <button className="button4"style={{marginBottom: "2vh"}}onClick={() => deleteAgencyAward(agency)}>Delete award</button>
+                    </div>
 
 
-     
-      {
-          agency.image && <img src={agency.image} style={{width:400}} />
-      }
+                    
+                    <div className="showagencypanelright">
+                     {/* {
+                      agencies.map(agency => ( */}
+                          <div key={agency.id || agency.name}>
+                          <ul>{agency.name}</ul>
+                          <ul>{agency.description}</ul>
+                          <ul>{agency.parentco}</ul>
+                          <ul>{agency.type}</ul>
+                          <ul>{agency.websitelink}</ul>
+                    </div>))
+                 
+                   </div>
+                   </div>
+                    <div className="showagencypage2">
+ 
+                    <div className="showawardsdash">
 
-      </div>
-              
+                    {
+                      agencies.map(agency => (
+                      <div className="awardsdashitem" key={agency.id || agency.name}>
+                      <h2>{agency.name}</h2>
+                      <h3>Description: </h3>
+                      <p>{agency.description}</p>
+                      <h3>First Deadline:</h3>
+                      <p>{agency.deadline1}</p>
+                        {console.log(agency)}
+                     
 
-        )
+                    </div>
+                         ))}
+                    </div>
+                    </div>
+                   </div>
 
-        )
-
-        }
-     
-
-        </div>
     )
 }
 

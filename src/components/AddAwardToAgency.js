@@ -204,7 +204,7 @@ function AddAwardToAgency () {
                   contentLabel="Example Modal"
                 >
 
-                  <div style={{color: "black", fontSize: "50%"}}>
+                  <div style={{color: "white", fontSize: "50%"}}>
                         <h2 style={{fontSize: "20px"}}>{singleaward.name}</h2>
                         <h3>Parent Company:</h3>
                         <p>{singleaward.parentco}</p>

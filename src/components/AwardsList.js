@@ -156,7 +156,7 @@ function SeeAwards () {
                 <h3>First Deadline:</h3>
                 <p>{award.deadline1}</p>
                 
-                <button className="button4" onClick={() => openModal(award.id)}>More Information</button>
+                <button className="button4" style={{color: "white"}} onClick={() => openModal(award.id)}>More Information</button>
 
 
                 <Modal
@@ -167,7 +167,7 @@ function SeeAwards () {
                   contentLabel="Example Modal"
                 >
 
-                  <div style={{color: "black", fontSize: "50%"}}>
+                  <div style={{color: "white", fontSize: "50%"}}>
                         <h2 style={{fontSize: "20px"}}>{singleaward.name}</h2>
                         <h3>Parent Company:</h3>
                         <p>{singleaward.parentco}</p>
@@ -196,11 +196,11 @@ function SeeAwards () {
                         <h3>Additional Notes:</h3>
                         <p>{singleaward.notes}</p>
 
-                        <button className="button4" onClick={closeModal}>Close</button>
+                        <button className="button4" style={{color: "white"}} onClick={closeModal}>Close</button>
                         </div>
 
                 </Modal>
-                <button className="button4"style={{marginBottom: "2vh"}}onClick={() => deleteAward(award)}>Delete award</button>
+                <button className="button4"style={{marginBottom: "2vh", color: "white"}}onClick={() => deleteAward(award)}>Delete award</button>
                 {
                     award.image && <img src={award.image} style={{width:400}} />
                 }

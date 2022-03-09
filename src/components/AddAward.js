@@ -234,7 +234,7 @@ function AddAward() {
 
 
 
-      <button className="button1" style={{fontSize: "80%"}} onClick={createAward}>Create Award</button>
+      <button className="button1" style={{fontSize: "80%", color: "white"}} onClick={createAward}>Create Award</button>
       </div>
       </div>
       )

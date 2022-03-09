@@ -170,7 +170,7 @@ function AgencyList () {
                 <h3>First Deadline:</h3>
                 <p>{agency.deadline1}</p>
                   {console.log(agency)}
-                <button className="button4" onClick={() => openModal(agency.id)}>More Information</button>
+                <button className="button4" style={{color: "white"}} onClick={() => openModal(agency.id)}>More Information</button>
                 <br />
               
                 <button className="button4">
@@ -196,7 +196,7 @@ function AgencyList () {
                   contentLabel="Example Modal"
                 >
 
-                  <div style={{color: "black", fontSize: "50%"}}>
+                  <div style={{color: "white", fontSize: "50%"}}>
                         <h2 style={{fontSize: "20px"}}>{singleagency.name}</h2>
                         <h3>Parent Company:</h3>
                         <p>{singleagency.parentco}</p>
