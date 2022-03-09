@@ -41,14 +41,3 @@ type Trophy @model {
   award: Award @belongsTo
   content: String!
 }
-type AgencyAwardsTable @model {
-  id: ID!
-  name: String!
-  description: String
-  parentco: String
-  type: String
-  websitelink: String
-  notes: String
-  image: String
-  awards: [Award] @hasMany
-}
