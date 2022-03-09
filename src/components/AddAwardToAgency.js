@@ -109,9 +109,10 @@ function AddAwardToAgency () {
           const image = await Storage.get(formData.image);
           formData.image = image;
         }
-        setAwards([ ...awards, formData ]);
-        console.log(awards)
-        setFormData(initialFormState);
+        closeModal()
+        // setAwards([ ...awards, formData ]);
+        // console.log(awards)
+        // setFormData(initialFormState);
       }
 
   async function sortAwards(parameter) {

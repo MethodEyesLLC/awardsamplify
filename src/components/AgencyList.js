@@ -8,7 +8,11 @@ import { createAgency as createAgencyMutation, deleteAgency as deleteagencyMutat
 import { Link } from "react-router-dom";
 import Header from "./header"
 import Modal from 'react-modal';
+import styled from "styled-components";
 
+const NavUnlisted = styled.ul`
+  text-decoration: none;
+`;
 
 
 let isMobile = ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)))
@@ -33,7 +37,12 @@ const customStyles = {
 
 }
 
-
+const linkStyle = {
+  margin: "1rem",
+  textDecoration: "none",
+  color: 'white',
+  marginBottom: "0vh"
+};
 
 function AgencyList () {
    let subtitle;
@@ -78,6 +87,7 @@ function AgencyList () {
     const newagenciesArray = agencies.filter(agency => agency.id !== id);
     setagencies(newagenciesArray);
     await API.graphql({ query: deleteagencyMutation, variables: { input: { id } }});
+    setIsOpen(false)
   }
   async function sortagencies(parameter) {
     console.log(parameter)
@@ -112,7 +122,10 @@ function AgencyList () {
           <div class='line'></div>
           <div class='line'></div>
           <div class='line'></div>
+        
           <Link className="seelink" to="/" >Back to Dashboard</Link>
+         
+
       </a>   
       <a className="button1" href="/addagency">
       <div class='line'></div> 
@@ -158,16 +171,23 @@ function AgencyList () {
                 <p>{agency.deadline1}</p>
                   {console.log(agency)}
                 <button className="button4" onClick={() => openModal(agency.id)}>More Information</button>
-                <button className="button4" >
+                <br />
+              
+                <button className="button4">
+                        <Link
+                        activeClassName="button4"
+                        to='/awardagencydash'
+                        style={linkStyle}
+                          state={{ id: agency }}
 
-                <Link
-               
-                 to='/showagency'
-                  state={{ agency: agency }}
-                >Show Agency Information For {agency.name}
-                </Link>
-                </button>
 
+                     
+                      >Add Award to {agency.name}
+
+                      </Link>
+
+
+                        </button>
                 <Modal
                   isOpen={modalIsOpen}
                   onAfterOpen={afterOpenModal}
@@ -186,23 +206,18 @@ function AgencyList () {
                         <h3>Additional Notes:</h3>
                         <p>{singleagency.notes}</p>
                         {console.log(singleagency)}
-                        <button className="button4">
-                        <Link
-                        activeClassName="button4"
-                        to='/awardagencydash'
-                
-                          state={{ id: singleagency }}
+                <button className="button4">
+                <Link
+                  style={linkStyle}
+                 to='/showagency' 
+                  state={{ agency: singleagency }}
+                >Show Agency Information For {singleagency.name}
+                </Link>
+             
+                </button>
+              <br />
 
-
-                     
-                      >Add Award to {singleagency.name}
-                       <button style={{marginBottom: "2vh"}}onClick={() => deleteagency(agency)}>Delete agency</button>
-
-                      </Link>
-
-
-                        </button>
-
+                        <button className="button4" style={{marginBottom: "2vh"}}onClick={() => deleteagency(agency)}>Delete agency</button>
 
                         <button className="button4" onClick={closeModal}>Close</button>
                         </div>

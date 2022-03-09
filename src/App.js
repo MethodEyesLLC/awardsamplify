@@ -45,7 +45,7 @@ function App() {
       <Header>
             
       </Header>
-        <div style={{paddingTop: "40vh", backgroundColor: "#457D83", paddingBottom: "15vh"}}>
+        <div style={{paddingTop: "35vh", backgroundColor: "#457D83", paddingBottom: "5vh"}}>
 
 
     <Authenticator>

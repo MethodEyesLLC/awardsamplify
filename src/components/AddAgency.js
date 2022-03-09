@@ -42,9 +42,9 @@ function AddAgency() {
             Add an Agency
           </h1>
 
-    
+          <div className="awardshowtop">
         <div><a href="/">
-        <div className="button3"  style={{marginLeft: "25vw"}}>
+        <div className="button1"  style={{marginLeft: "25vw"}}>
       <div class='line'></div> 
           <div class='line'></div>
           <div class='line'></div>
@@ -52,10 +52,26 @@ function AddAgency() {
           <div class='line'></div>
           <div class='line'></div>
           <Link className="seelink" to="/" >Back to Dashboard</Link>
+          
       </div>   
           
           </a></div>
+          <a href="/agencylist">
 
+        
+          <div className="button1"  style={{marginLeft: "25vw"}}>
+      <div class='line'></div> 
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <Link className="seelink" to="/agencylist" >Agency Dashboard</Link>
+      </div> 
+      </a>  
+      </div>
+    
+        
    
     <div className="createform">
 

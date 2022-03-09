@@ -44,9 +44,9 @@ function AddAward() {
             Add an Award
           </h1>
 
-    
+          <div className="awardshowtop">
         <div><a href="/">
-        <div className="button3"  style={{marginLeft: "25vw"}}>
+        <div className="button1"  style={{marginLeft: "25vw"}}>
       <div class='line'></div> 
           <div class='line'></div>
           <div class='line'></div>
@@ -54,10 +54,25 @@ function AddAward() {
           <div class='line'></div>
           <div class='line'></div>
           <Link className="seelink" to="/" >Back to Dashboard</Link>
+          
       </div>   
           
           </a></div>
+          <a href="/seeawards">
 
+        
+          <div className="button1"  style={{marginLeft: "25vw"}}>
+      <div class='line'></div> 
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <div class='line'></div>
+          <Link className="seelink" to="/seeawards" >Award Show Dashboard</Link>
+      </div> 
+      </a>  
+      </div>
+    
    
     <div className="createform">
 
