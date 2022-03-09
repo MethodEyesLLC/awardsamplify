@@ -194,8 +194,7 @@ function AddAwardToAgency () {
                 <p>{award.deadline1}</p>
                 
                 <button className="button4" onClick={() => openModal(award.id)}>More Information</button>
-{/* 
-// */}
+
                 <Modal
                   isOpen={modalIsOpen}
                   onAfterOpen={afterOpenModal}
