@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { API, Storage } from 'aws-amplify';
 import { Authenticator, IconArrowForwardIos } from '@aws-amplify/ui-react';
-import { getAgency, listCampaigns } from '../graphql/queries';
+import { getAgency, getCampaign, listCampaigns } from '../graphql/queries';
 import { updateAward } from '../graphql/mutations';
 import { Link, useLocation } from "react-router-dom";
 import '@aws-amplify/ui-react/styles.css';
@@ -14,9 +14,9 @@ function ShowAgency () {
     const [newDeleteArray, setDeleteArray] = useState([])
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [sort, setSort] = useState("")
-    const location = useLocation()
-    const [campaigns, setcampaigns] = useState([])
 
+    const [campaigns, setcampaigns] = useState([])
+    const location = useLocation()
     useEffect(() => {
         fetchagencies();
         fetchcampaigns()
@@ -46,15 +46,13 @@ function ShowAgency () {
       
     async function fetchcampaigns() {
       let agencyid = agency.id
-        const apiData = await API.graphql({ query: listCampaigns, variables: {input: {
 
-      
-          agencyCampaignId: (agencyid)}
-         
-        }});
-         console.log(apiData)
+      console.log(agencyid)
+        const apiData = await API.graphql({ query: listCampaigns}
+          
+      );
+
         const agenciesFromAPI = apiData.data.listCampaigns.items;
-        console.log(agenciesFromAPI)
         await Promise.all(agenciesFromAPI.map(async agency => {
           if (agency.image) {
             const image = await Storage.get(agency.image);
@@ -63,8 +61,17 @@ function ShowAgency () {
           return agency;
         }))
         console.log(apiData.data.listCampaigns.items)
-        setcampaigns(apiData.data.listCampaigns.items);
-      }
+        await Promise.all(agenciesFromAPI.filter(agency => agency.agencyCampaignsId == agencyid).map(filteredAgency => (
+
+          setcampaigns(oldArray => [...oldArray, filteredAgency])
+        ))
+
+        )
+   
+
+        }
+      
+      
       
       async function deleteAgencyAward({ id }) {
         console.log(id)

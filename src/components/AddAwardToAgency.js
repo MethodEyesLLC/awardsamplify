@@ -4,7 +4,7 @@ import { API, Storage } from 'aws-amplify';
 import { Authenticator, IconArrowForwardIos, IconArrowUpward } from '@aws-amplify/ui-react';
 import { listAwards, listCampaigns } from '../graphql/queries';
 import '@aws-amplify/ui-react/styles.css';
-import { updateAward, createCampaign } from '../graphql/mutations';
+import { updateAward, createCampaign, updateAgency } from '../graphql/mutations';
 import { Link, useLocation } from "react-router-dom";
 import ShowAwards from './ShowAward'
 import Header from "./header"
@@ -109,30 +109,33 @@ function AddAwardToAgency () {
           }))
           console.log(apiData.data.listCampaigns.items)
           setcampaigns(apiData.data.listCampaigns.items);
-        }
+      }
       
   async function AddToAgency(awardid) {
     console.log(awardid.id)
 
     let agencyid = id.id
-
     let realawardid = awardid.id
-
     let realcampaignid = campaigns[0].id
-    if (campaigns[0].content == "A") {
+
+
       console.log(campaigns[0].id)
-      await API.graphql({ query: updateAward, variables: { input:{
-        id: realawardid,
-        campaignAwardsId: realcampaignid
-    }}})}
-    else {
-      await API.graphql({query: createCampaign, variables: {
-        input: {
-          agencyCampaignsId: agencyid,
-          content: campaignname
-        }
-      }})
-    }
+      await API.graphql({ query: updateAgency, variables: { input:{
+        id: agencyid,
+
+        agencyCampaignsId: realawardid
+ 
+       
+    }}})
+
+    // else {
+    //   await API.graphql({query: createCampaign, variables: {
+    //     input: {
+    //       agencyCampaignsId: agencyid,
+    //       content: campaignname
+    //     }
+    //   }})
+
         
     //   await API.graphql({ query: updateAward, variables: { input:{
     //     id: awardidproper,
@@ -140,16 +143,14 @@ function AddAwardToAgency () {
     
     //   }
 
-    // }})
+    // }}
+          
 
         if (formData.image) {
           const image = await Storage.get(formData.image);
           formData.image = image;
         }
         closeModal()
-        // setAwards([ ...awards, formData ]);
-        // console.log(awards)
-        // setFormData(initialFormState);
       }
 
   async function sortAwards(parameter) {

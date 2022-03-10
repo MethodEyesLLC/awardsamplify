@@ -12,7 +12,7 @@ import AgencyList from './components/AgencyList'
 import AddAgency from './components/AddAgency'
 import AddAwardToAgency from './components/AddAwardToAgency';
 import ShowAgency from './components/ShowAgency';
-
+import AddCampaign from './components/AddCampaign'
 import {
   BrowserRouter,
   Routes,
@@ -35,6 +35,8 @@ render (
       <Route path="/addagency" element={<AddAgency />} />
       <Route path="/awardagencydash" element={<AddAwardToAgency />} />
       <Route path='/showagency' element={<ShowAgency/> }/>
+      <Route path='/addcampaign' element={<AddCampaign/> }/>
+
     </Routes>
   </BrowserRouter>,
     rootElement

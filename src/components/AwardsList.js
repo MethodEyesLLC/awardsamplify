@@ -73,12 +73,12 @@ function SeeAwards () {
         }))
         setAwards(apiData.data.listAwards.items);
       }
-  async function deleteAward( id ) {
-    console.log(id)
+  async function deleteAward( {id} ) {
+
     const newAwardsArray = awards.filter(award => award.id !== id);
     setAwards(newAwardsArray);
     await API.graphql({ query: deleteAwardMutation, variables: { input: { 
-      id: id.id,
+      id
 
     
     } }});

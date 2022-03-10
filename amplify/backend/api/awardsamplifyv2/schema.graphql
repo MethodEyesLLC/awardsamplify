@@ -7,6 +7,7 @@ type Agency @model @auth(rules: [{allow: public}]) {
   websitelink: String
   notes: String
   image: String
+  awards: [Award] @hasMany
   campaigns: [Campaign] @hasMany
 }
 
@@ -35,6 +36,7 @@ type Award @model @auth(rules: [{allow: public}]) {
   websitelink: String
   notes: String
   image: String
+  agency: Agency @belongsTo
   campaign: Campaign @belongsTo
   trophy: [Trophy] @hasMany
 }
