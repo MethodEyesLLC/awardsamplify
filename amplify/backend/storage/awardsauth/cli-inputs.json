@@ -1,0 +1,14 @@
+{
+  "resourceName": "awardsauth",
+  "policyUUID": "7fa0bcd7",
+  "bucketName": "awardsamplifyv25417219727254c888b03daed8850e76b",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

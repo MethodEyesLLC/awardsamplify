@@ -1,0 +1,47 @@
+type Agency @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  description: String
+  parentco: String
+  type: String
+  websitelink: String
+  notes: String
+  image: String
+  campaigns: [Campaign] @hasMany
+}
+
+type Campaign @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  agency: Agency @belongsTo
+  awards: [Award] @hasMany
+  content: String!
+}
+
+type Award @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  description: String
+  parentco: String
+  type: String
+  openforentries: String
+  deadline1: String
+  deadline2: String
+  deadline3: String
+  fee1: String
+  fee2: String
+  fee: String
+  eligibility: String
+  winnersannouncement: String
+  websitelink: String
+  notes: String
+  image: String
+  campaign: Campaign @belongsTo
+  trophy: [Trophy] @hasMany
+}
+
+type Trophy @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  award: Award @belongsTo
+  content: String!
+}
+ 

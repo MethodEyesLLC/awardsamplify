@@ -4,10 +4,11 @@ import { schema } from './schema';
 
 
 
-const { Award, Agency, AgencyAwards } = initSchema(schema);
+const { Agency, Campaign, Award, Trophy } = initSchema(schema);
 
 export {
-  Award,
   Agency,
-  AgencyAwards
+  Campaign,
+  Award,
+  Trophy
 };

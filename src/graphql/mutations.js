@@ -15,28 +15,13 @@ export const createAgency = /* GraphQL */ `
       websitelink
       notes
       image
-      awards {
+      campaigns {
         items {
           id
-          name
-          description
-          parentco
-          type
-          openforentries
-          deadline1
-          deadline2
-          deadline3
-          fee1
-          fee2
-          fee
-          eligibility
-          winnersannouncement
-          websitelink
-          notes
-          image
+          content
           createdAt
           updatedAt
-          agencyAwardsId
+          agencyCampaignsId
         }
         nextToken
       }
@@ -59,28 +44,13 @@ export const updateAgency = /* GraphQL */ `
       websitelink
       notes
       image
-      awards {
+      campaigns {
         items {
           id
-          name
-          description
-          parentco
-          type
-          openforentries
-          deadline1
-          deadline2
-          deadline3
-          fee1
-          fee2
-          fee
-          eligibility
-          winnersannouncement
-          websitelink
-          notes
-          image
+          content
           createdAt
           updatedAt
-          agencyAwardsId
+          agencyCampaignsId
         }
         nextToken
       }
@@ -103,6 +73,43 @@ export const deleteAgency = /* GraphQL */ `
       websitelink
       notes
       image
+      campaigns {
+        items {
+          id
+          content
+          createdAt
+          updatedAt
+          agencyCampaignsId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createCampaign = /* GraphQL */ `
+  mutation CreateCampaign(
+    $input: CreateCampaignInput!
+    $condition: ModelCampaignConditionInput
+  ) {
+    createCampaign(input: $input, condition: $condition) {
+      id
+      agency {
+        id
+        name
+        description
+        parentco
+        type
+        websitelink
+        notes
+        image
+        campaigns {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       awards {
         items {
           id
@@ -124,12 +131,122 @@ export const deleteAgency = /* GraphQL */ `
           image
           createdAt
           updatedAt
-          agencyAwardsId
+          campaignAwardsId
         }
         nextToken
       }
+      content
       createdAt
       updatedAt
+      agencyCampaignsId
+    }
+  }
+`;
+export const updateCampaign = /* GraphQL */ `
+  mutation UpdateCampaign(
+    $input: UpdateCampaignInput!
+    $condition: ModelCampaignConditionInput
+  ) {
+    updateCampaign(input: $input, condition: $condition) {
+      id
+      agency {
+        id
+        name
+        description
+        parentco
+        type
+        websitelink
+        notes
+        image
+        campaigns {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      awards {
+        items {
+          id
+          name
+          description
+          parentco
+          type
+          openforentries
+          deadline1
+          deadline2
+          deadline3
+          fee1
+          fee2
+          fee
+          eligibility
+          winnersannouncement
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+          campaignAwardsId
+        }
+        nextToken
+      }
+      content
+      createdAt
+      updatedAt
+      agencyCampaignsId
+    }
+  }
+`;
+export const deleteCampaign = /* GraphQL */ `
+  mutation DeleteCampaign(
+    $input: DeleteCampaignInput!
+    $condition: ModelCampaignConditionInput
+  ) {
+    deleteCampaign(input: $input, condition: $condition) {
+      id
+      agency {
+        id
+        name
+        description
+        parentco
+        type
+        websitelink
+        notes
+        image
+        campaigns {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      awards {
+        items {
+          id
+          name
+          description
+          parentco
+          type
+          openforentries
+          deadline1
+          deadline2
+          deadline3
+          fee1
+          fee2
+          fee
+          eligibility
+          winnersannouncement
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+          campaignAwardsId
+        }
+        nextToken
+      }
+      content
+      createdAt
+      updatedAt
+      agencyCampaignsId
     }
   }
 `;
@@ -156,20 +273,27 @@ export const createAward = /* GraphQL */ `
       websitelink
       notes
       image
-      agency {
+      campaign {
         id
-        name
-        description
-        parentco
-        type
-        websitelink
-        notes
-        image
+        agency {
+          id
+          name
+          description
+          parentco
+          type
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+        }
         awards {
           nextToken
         }
+        content
         createdAt
         updatedAt
+        agencyCampaignsId
       }
       trophy {
         items {
@@ -183,7 +307,7 @@ export const createAward = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      agencyAwardsId
+      campaignAwardsId
     }
   }
 `;
@@ -210,20 +334,27 @@ export const updateAward = /* GraphQL */ `
       websitelink
       notes
       image
-      agency {
+      campaign {
         id
-        name
-        description
-        parentco
-        type
-        websitelink
-        notes
-        image
+        agency {
+          id
+          name
+          description
+          parentco
+          type
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+        }
         awards {
           nextToken
         }
+        content
         createdAt
         updatedAt
+        agencyCampaignsId
       }
       trophy {
         items {
@@ -237,7 +368,7 @@ export const updateAward = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      agencyAwardsId
+      campaignAwardsId
     }
   }
 `;
@@ -264,20 +395,27 @@ export const deleteAward = /* GraphQL */ `
       websitelink
       notes
       image
-      agency {
+      campaign {
         id
-        name
-        description
-        parentco
-        type
-        websitelink
-        notes
-        image
+        agency {
+          id
+          name
+          description
+          parentco
+          type
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+        }
         awards {
           nextToken
         }
+        content
         createdAt
         updatedAt
+        agencyCampaignsId
       }
       trophy {
         items {
@@ -291,7 +429,7 @@ export const deleteAward = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      agencyAwardsId
+      campaignAwardsId
     }
   }
 `;
@@ -320,24 +458,19 @@ export const createTrophy = /* GraphQL */ `
         websitelink
         notes
         image
-        agency {
+        campaign {
           id
-          name
-          description
-          parentco
-          type
-          websitelink
-          notes
-          image
+          content
           createdAt
           updatedAt
+          agencyCampaignsId
         }
         trophy {
           nextToken
         }
         createdAt
         updatedAt
-        agencyAwardsId
+        campaignAwardsId
       }
       content
       createdAt
@@ -371,24 +504,19 @@ export const updateTrophy = /* GraphQL */ `
         websitelink
         notes
         image
-        agency {
+        campaign {
           id
-          name
-          description
-          parentco
-          type
-          websitelink
-          notes
-          image
+          content
           createdAt
           updatedAt
+          agencyCampaignsId
         }
         trophy {
           nextToken
         }
         createdAt
         updatedAt
-        agencyAwardsId
+        campaignAwardsId
       }
       content
       createdAt
@@ -422,24 +550,19 @@ export const deleteTrophy = /* GraphQL */ `
         websitelink
         notes
         image
-        agency {
+        campaign {
           id
-          name
-          description
-          parentco
-          type
-          websitelink
-          notes
-          image
+          content
           createdAt
           updatedAt
+          agencyCampaignsId
         }
         trophy {
           nextToken
         }
         createdAt
         updatedAt
-        agencyAwardsId
+        campaignAwardsId
       }
       content
       createdAt

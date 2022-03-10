@@ -12,28 +12,13 @@ export const getAgency = /* GraphQL */ `
       websitelink
       notes
       image
-      awards {
+      campaigns {
         items {
           id
-          name
-          description
-          parentco
-          type
-          openforentries
-          deadline1
-          deadline2
-          deadline3
-          fee1
-          fee2
-          fee
-          eligibility
-          winnersannouncement
-          websitelink
-          notes
-          image
+          content
           createdAt
           updatedAt
-          agencyAwardsId
+          agencyCampaignsId
         }
         nextToken
       }
@@ -58,11 +43,95 @@ export const listAgencies = /* GraphQL */ `
         websitelink
         notes
         image
-        awards {
+        campaigns {
           nextToken
         }
         createdAt
         updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getCampaign = /* GraphQL */ `
+  query GetCampaign($id: ID!) {
+    getCampaign(id: $id) {
+      id
+      agency {
+        id
+        name
+        description
+        parentco
+        type
+        websitelink
+        notes
+        image
+        campaigns {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      awards {
+        items {
+          id
+          name
+          description
+          parentco
+          type
+          openforentries
+          deadline1
+          deadline2
+          deadline3
+          fee1
+          fee2
+          fee
+          eligibility
+          winnersannouncement
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+          campaignAwardsId
+        }
+        nextToken
+      }
+      content
+      createdAt
+      updatedAt
+      agencyCampaignsId
+    }
+  }
+`;
+export const listCampaigns = /* GraphQL */ `
+  query ListCampaigns(
+    $filter: ModelCampaignFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCampaigns(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        agency {
+          id
+          name
+          description
+          parentco
+          type
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+        }
+        awards {
+          nextToken
+        }
+        content
+        createdAt
+        updatedAt
+        agencyCampaignsId
       }
       nextToken
     }
@@ -88,20 +157,27 @@ export const getAward = /* GraphQL */ `
       websitelink
       notes
       image
-      agency {
+      campaign {
         id
-        name
-        description
-        parentco
-        type
-        websitelink
-        notes
-        image
+        agency {
+          id
+          name
+          description
+          parentco
+          type
+          websitelink
+          notes
+          image
+          createdAt
+          updatedAt
+        }
         awards {
           nextToken
         }
+        content
         createdAt
         updatedAt
+        agencyCampaignsId
       }
       trophy {
         items {
@@ -115,7 +191,7 @@ export const getAward = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      agencyAwardsId
+      campaignAwardsId
     }
   }
 `;
@@ -144,24 +220,19 @@ export const listAwards = /* GraphQL */ `
         websitelink
         notes
         image
-        agency {
+        campaign {
           id
-          name
-          description
-          parentco
-          type
-          websitelink
-          notes
-          image
+          content
           createdAt
           updatedAt
+          agencyCampaignsId
         }
         trophy {
           nextToken
         }
         createdAt
         updatedAt
-        agencyAwardsId
+        campaignAwardsId
       }
       nextToken
     }
@@ -189,24 +260,19 @@ export const getTrophy = /* GraphQL */ `
         websitelink
         notes
         image
-        agency {
+        campaign {
           id
-          name
-          description
-          parentco
-          type
-          websitelink
-          notes
-          image
+          content
           createdAt
           updatedAt
+          agencyCampaignsId
         }
         trophy {
           nextToken
         }
         createdAt
         updatedAt
-        agencyAwardsId
+        campaignAwardsId
       }
       content
       createdAt
@@ -244,7 +310,7 @@ export const listTrophies = /* GraphQL */ `
           image
           createdAt
           updatedAt
-          agencyAwardsId
+          campaignAwardsId
         }
         content
         createdAt

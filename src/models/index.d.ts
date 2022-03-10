@@ -4,16 +4,47 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
-type AwardMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
 type AgencyMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
-type AgencyAwardsMetaData = {
+type CampaignMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type AwardMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type TrophyMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+export declare class Agency {
+  readonly id: string;
+  readonly name: string;
+  readonly description?: string;
+  readonly parentco?: string;
+  readonly type?: string;
+  readonly websitelink?: string;
+  readonly notes?: string;
+  readonly image?: string;
+  readonly campaigns?: (Campaign | null)[];
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<Agency, AgencyMetaData>);
+  static copyOf(source: Agency, mutator: (draft: MutableModel<Agency, AgencyMetaData>) => MutableModel<Agency, AgencyMetaData> | void): Agency;
+}
+
+export declare class Campaign {
+  readonly id: string;
+  readonly agency?: Agency;
+  readonly awards?: (Award | null)[];
+  readonly content: string;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<Campaign, CampaignMetaData>);
+  static copyOf(source: Campaign, mutator: (draft: MutableModel<Campaign, CampaignMetaData>) => MutableModel<Campaign, CampaignMetaData> | void): Campaign;
 }
 
 export declare class Award {
@@ -34,35 +65,20 @@ export declare class Award {
   readonly websitelink?: string;
   readonly notes?: string;
   readonly image?: string;
-  readonly agencies?: (AgencyAwards | null)[];
+  readonly campaign?: Campaign;
+  readonly trophy?: (Trophy | null)[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Award, AwardMetaData>);
   static copyOf(source: Award, mutator: (draft: MutableModel<Award, AwardMetaData>) => MutableModel<Award, AwardMetaData> | void): Award;
 }
 
-export declare class Agency {
+export declare class Trophy {
   readonly id: string;
-  readonly name: string;
-  readonly description?: string;
-  readonly parentco?: string;
-  readonly type?: string;
-  readonly websitelink?: string;
-  readonly notes?: string;
-  readonly image?: string;
-  readonly awards?: (AgencyAwards | null)[];
+  readonly award?: Award;
+  readonly content: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  constructor(init: ModelInit<Agency, AgencyMetaData>);
-  static copyOf(source: Agency, mutator: (draft: MutableModel<Agency, AgencyMetaData>) => MutableModel<Agency, AgencyMetaData> | void): Agency;
-}
-
-export declare class AgencyAwards {
-  readonly id: string;
-  readonly award: Award;
-  readonly agency: Agency;
-  readonly createdAt?: string;
-  readonly updatedAt?: string;
-  constructor(init: ModelInit<AgencyAwards, AgencyAwardsMetaData>);
-  static copyOf(source: AgencyAwards, mutator: (draft: MutableModel<AgencyAwards, AgencyAwardsMetaData>) => MutableModel<AgencyAwards, AgencyAwardsMetaData> | void): AgencyAwards;
+  constructor(init: ModelInit<Trophy, TrophyMetaData>);
+  static copyOf(source: Trophy, mutator: (draft: MutableModel<Trophy, TrophyMetaData>) => MutableModel<Trophy, TrophyMetaData> | void): Trophy;
 }
