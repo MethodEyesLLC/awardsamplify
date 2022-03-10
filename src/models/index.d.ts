@@ -5,11 +5,11 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 type AwardMetaData = {
-  readOnlyFields;
+  readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
 type AgencyMetaData = {
-  readOnlyFields;
+  readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
 type AgencyAwardsMetaData = {
@@ -34,11 +34,11 @@ export declare class Award {
   readonly websitelink?: string;
   readonly notes?: string;
   readonly image?: string;
+  readonly agencies?: (AgencyAwards | null)[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  readonly agencies?: (AgencyAwards | null)[];
-  constructor(init: ModelInit<Award>);
-  static copyOf(source: Award, mutator: (draft: MutableModel<Award>) => MutableModel<Award> | void): Award;
+  constructor(init: ModelInit<Award, AwardMetaData>);
+  static copyOf(source: Award, mutator: (draft: MutableModel<Award, AwardMetaData>) => MutableModel<Award, AwardMetaData> | void): Award;
 }
 
 export declare class Agency {
@@ -50,11 +50,11 @@ export declare class Agency {
   readonly websitelink?: string;
   readonly notes?: string;
   readonly image?: string;
+  readonly awards?: (AgencyAwards | null)[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
-  readonly awards?: (AgencyAwards | null)[];
-  constructor(init: ModelInit<Agency>);
-  static copyOf(source: Agency, mutator: (draft: MutableModel<Agency>) => MutableModel<Agency> | void): Agency;
+  constructor(init: ModelInit<Agency, AgencyMetaData>);
+  static copyOf(source: Agency, mutator: (draft: MutableModel<Agency, AgencyMetaData>) => MutableModel<Agency, AgencyMetaData> | void): Agency;
 }
 
 export declare class AgencyAwards {

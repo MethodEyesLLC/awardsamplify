@@ -11,7 +11,14 @@ type Agency @model {
   websitelink: String
   notes: String
   image: String
+  campaigns: [Campaign] @hasMany
+}
+
+type Campaign @model {
+  id: ID!
+  agency: Agency @belongsTo
   awards: [Award] @hasMany
+  content: String!
 }
 
 type Award @model {
@@ -32,7 +39,7 @@ type Award @model {
   websitelink: String
   notes: String
   image: String
-  agency: Agency @belongsTo
+  campaign: Campaign @belongsTo
   trophy: [Trophy] @hasMany
 }
 
