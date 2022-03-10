@@ -121,7 +121,7 @@ function App() {
               <div class='line'></div>
               <div class='line'></div>
             
-          <a style={{marginLeft: "17.5px"}}className="link" onClick={signOut}>Sign out</a>
+          <a style={{marginLeft: "17.5px"}}className="link" onClick={signOut}>Sign Out</a>
 
       </div>
       </a>

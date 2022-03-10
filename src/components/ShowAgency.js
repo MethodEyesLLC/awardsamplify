@@ -90,7 +90,7 @@ function ShowAgency () {
                           <ul>{agency.parentco}</ul>
                           <ul>{agency.type}</ul>
                           <ul>{agency.websitelink}</ul>
-                    </div>))
+                    </div>
                  
                    </div>
                    </div>
