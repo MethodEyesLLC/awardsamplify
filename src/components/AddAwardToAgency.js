@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { API, Storage } from 'aws-amplify';
 import { Authenticator, IconArrowForwardIos, IconArrowUpward } from '@aws-amplify/ui-react';
-import { listAwards } from '../graphql/queries';
+import { listAwards, listCampaigns } from '../graphql/queries';
 import '@aws-amplify/ui-react/styles.css';
-import { updateAward } from '../graphql/mutations';
+import { updateAward, createCampaign } from '../graphql/mutations';
 import { Link, useLocation } from "react-router-dom";
 import ShowAwards from './ShowAward'
 import Header from "./header"
@@ -48,10 +48,13 @@ function AddAwardToAgency () {
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [formData, setFormData] = useState(initialFormState)
     const [sort, setSort] = useState("")
+    const [campaignname, setcampaignname] = ("A")
+    const [campaigns, setcampaigns] = useState([])
     const location = useLocation()
 
     useEffect(() => {
         fetchAwards();
+        fetchcampaigns();
 
       }, []);
 
@@ -86,24 +89,58 @@ function AddAwardToAgency () {
         }))
         setAwards(apiData.data.listAwards.items);
       }
-
+  async function fetchcampaigns() {
+        let agencyid = id.id
+          const apiData = await API.graphql({ query: listCampaigns, variables: {input: {
+  
+        
+            agencyCampaignId: (agencyid)}
+           
+          }});
+           console.log(apiData)
+          const agenciesFromAPI = apiData.data.listCampaigns.items;
+          console.log(agenciesFromAPI)
+          await Promise.all(agenciesFromAPI.map(async agency => {
+            if (agency.image) {
+              const image = await Storage.get(agency.image);
+              agency.image = image;
+            }
+            return agency;
+          }))
+          console.log(apiData.data.listCampaigns.items)
+          setcampaigns(apiData.data.listCampaigns.items);
+        }
       
   async function AddToAgency(awardid) {
     console.log(awardid.id)
 
     let agencyid = id.id
-    let awardidproper = awardid.id
-    console.log(agencyid)
-    console.log(awardid)
 
-        // if (!formData.name || !formData.description) return;
+    let realawardid = awardid.id
+
+    let realcampaignid = campaigns[0].id
+    if (campaigns[0].content == "A") {
+      console.log(campaigns[0].id)
       await API.graphql({ query: updateAward, variables: { input:{
-        id: awardidproper,
-        agencyAwardsId: agencyid
+        id: realawardid,
+        campaignAwardsId: realcampaignid
+    }}})}
+    else {
+      await API.graphql({query: createCampaign, variables: {
+        input: {
+          agencyCampaignsId: agencyid,
+          content: campaignname
+        }
+      }})
+    }
+        
+    //   await API.graphql({ query: updateAward, variables: { input:{
+    //     id: awardidproper,
+    //     agencyAwardsId: agencyid
     
-      }
+    //   }
 
-    }})
+    // }})
 
         if (formData.image) {
           const image = await Storage.get(formData.image);
@@ -232,7 +269,8 @@ function AddAwardToAgency () {
                         <h3>Additional Notes:</h3>
                         <p>{singleaward.notes}</p>
 
-                        <button className="button4"style={{marginBottom: "2vh"}} onClick={() => AddToAgency(singleaward)}>Add Show to {id.name} </button>
+                        <button className="button4"style={{marginBottom: "0vh"}} onClick={() => AddToAgency(singleaward)}>Add Award to {id.name} </button>
+                        <button className="button4"style={{marginBottom: "0vh"}}>Associate Award With Campaign </button>
 
                         <button className="button4" onClick={closeModal}>Close</button>
                         </div>

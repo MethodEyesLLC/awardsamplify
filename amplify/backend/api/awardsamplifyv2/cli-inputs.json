@@ -3,17 +3,13 @@
   "serviceConfiguration": {
     "apiName": "awardsamplifyv2",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/tmp/amplify-687bd79f-a752-46d6-9ccd-570f05c8a287/amplify/backend/api/awardsamplifyv2/schema.graphql",
+    "gqlSchemaPath": "C:\\Users\\James\\Software Projects\\AwardsAmplify\\amplify\\backend\\api\\awardsamplifyv2\\schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
       "keyDescription": "api key description",
       "expirationTime": 30
     },
-    "conflictResolution": {
-      "defaultResolutionStrategy": {
-        "type": "AUTOMERGE"
-      }
-    },
+    "conflictResolution": {},
     "additionalAuthTypes": [
       {
         "mode": "AWS_IAM"
