@@ -23,23 +23,23 @@ import {
 Amplify.configure(config);
 
 const rootElement = document.getElementById("root");
-render (
+render(
 
 
   <BrowserRouter>
     <Routes>
-      <Route path ="/" element={<App />}/>
+      <Route path="/" element={<App />} />
       <Route path="/addaward" element={<AddAward />} />
       <Route path="/seeawards" element={<SeeAwards />} />
       <Route path="/agencylist" element={<AgencyList />} />
       <Route path="/addagency" element={<AddAgency />} />
       <Route path="/awardagencydash" element={<AddAwardToAgency />} />
-      <Route path='/showagency' element={<ShowAgency/> }/>
-      <Route path='/addcampaign' element={<AddCampaign/> }/>
+      <Route path='/showagency' element={<ShowAgency />} />
+      <Route path='/addcampaign' element={<AddCampaign />} />
 
     </Routes>
   </BrowserRouter>,
-    rootElement
+  rootElement
 )
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

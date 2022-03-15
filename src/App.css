@@ -176,10 +176,8 @@ h1 {
   display: flex;
   flex-direction: row;
   flex-wrap : wrap;
-
-
-
 }
+
 .awardsdashitem {
   text-align: center;
   flex: 1;
@@ -187,6 +185,16 @@ h1 {
   background-color: var(--primary-color);
   padding-bottom: 2vh;
 
+  box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px, rgba(231, 214, 214, 0.06) 0px 0px 0px 1px;  margin: 1vh
+}
+
+.awardsdashitemmini {
+  text-align: center;
+  flex: 1;
+  background-color: var(--primary-color);
+  padding-bottom: 2vh;
+  width: 30vw;
+  height: 12vh;
   box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px, rgba(231, 214, 214, 0.06) 0px 0px 0px 1px;  margin: 1vh
 }
 /* Show Award */
@@ -283,7 +291,26 @@ input[type="file"] {
   
   
 }
+.showagencypage3{
+  height: 50vh;
+  margin-left: 7.5vw;
+  margin-right: 7.5vw;
+  width: 85vw;
+  margin-bottom: 10vh
+  
+  
+}
+.agencyshowtop {
 
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+.awardshowtopitem {
+  margin-top: -5vh;
+  margin-left: 10vw
+
+}
 @media screen and (max-width:1300px) {
   .awardwrapper {
     width: 60vw

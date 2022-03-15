@@ -36,99 +36,99 @@ function App() {
   async function deleteAward({ id }) {
     const newAwardsArray = awards.filter(award => award.id !== id);
     setAwards(newAwardsArray);
-    await API.graphql({ query: deleteAwardMutation, variables: { input: { id } }});
+    await API.graphql({ query: deleteAwardMutation, variables: { input: { id } } });
   }
 
 
   return (
-      <div >
+    <div >
       <Header>
-            
+
       </Header>
-        <div style={{paddingTop: "35vh", backgroundColor: "#457D83", paddingBottom: "5vh"}}>
+      <div style={{ paddingTop: "35vh", backgroundColor: "#457D83", paddingBottom: "5vh" }}>
 
 
-    <Authenticator>
-      
-    {({ signOut, user }) => (
-    <div className="HomePage" >
-      <div>
+        <Authenticator>
 
-      <div style={{}}>
+          {({ signOut, user }) => (
+            <div className="HomePage" >
+              <div>
 
-  
-      </div>
-      <div className="homebuttoncontainer">
-
-        <a href='/seeawards'>
-          <div className="button1">
-          <div class='line'></div> 
-              <div class='line'></div>
-              <div class='line'></div>
-              <div class='line'></div>
-              <div class='line'></div>
-              <div class='line'></div>
-              <Link to="/seeawards" className="link">See Award Shows</Link>
-          </div>
-          </a>
-
-        <a href='/addaward'>
-
-          <div className="button1">
-          <div class='line'></div> 
-              <div class='line'></div>
-              <div class='line'></div>
-              <div class='line'></div>
-              <div class='line'></div>
-              <div class='line'></div>
-                
-          <Link className="link" to="/addaward">Add Award Show</Link>
-          </div>
-          </a>
-        <a href='/addagency'>
-        <div className="button1">
-        <div class='line'></div> 
-            <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-            
-      <Link className="link" to="/addagency">Add Agency</Link>
-      </div>
-      </a>
-      
-      <a href='/agencylist'>
-      <div className="button1">
-      <div class='line'></div> 
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-          <div class='line'></div>
-            
-      <Link className="link" to="/agencylist">Agency List</Link>
-      </div>
-      </a>
-          <a onClick={signOut}>
-
-        
-          <div className="button1">
-          <div class='line'></div> 
-              <div class='line'></div>
-              <div class='line'></div>
-              <div class='line'></div>
-              <div class='line'></div>
-              <div class='line'></div>
-            
-          <a style={{marginLeft: "17.5px"}}className="link" onClick={signOut}>Sign Out</a>
-
-      </div>
-      </a>
-      </div>
+                <div style={{}}>
 
 
-        {/* {
+                </div>
+                <div className="homebuttoncontainer">
+
+                  <a href='/seeawards'>
+                    <div className="button1">
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <Link to="/seeawards" className="link">See Award Shows</Link>
+                    </div>
+                  </a>
+
+                  <a href='/addaward'>
+
+                    <div className="button1">
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+
+                      <Link className="link" to="/addaward">Add Award Show</Link>
+                    </div>
+                  </a>
+                  <a href='/addagency'>
+                    <div className="button1">
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+
+                      <Link className="link" to="/addagency">Add Agency</Link>
+                    </div>
+                  </a>
+
+                  <a href='/agencylist'>
+                    <div className="button1">
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+
+                      <Link className="link" to="/agencylist">Agency List</Link>
+                    </div>
+                  </a>
+                  <a onClick={signOut}>
+
+
+                    <div className="button1">
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+                      <div class='line'></div>
+
+                      <a style={{ marginLeft: "17.5px" }} className="link" onClick={signOut}>Sign Out</a>
+
+                    </div>
+                  </a>
+                </div>
+
+
+                {/* {
           awards.map(award => (
             <div key={award.id || award.name}>
               <h2>{award.name}</h2>
@@ -140,21 +140,21 @@ function App() {
             </div>
           ))
         } */}
+              </div>
+
+            </div>
+          )}
+        </Authenticator>
       </div>
-
-    </div>
-    )}
-    </Authenticator> 
-    </div>
-    <footer style={{textAlign: "center", paddingTop: "3vh"}}>
-      <h2 style={{color: "white"}}>
-        Built By James Lenahan
-      </h2>
-    </footer>
+      <footer style={{ textAlign: "center", paddingTop: "3vh" }}>
+        <h2 style={{ color: "white" }}>
+          Built By James Lenahan
+        </h2>
+      </footer>
 
 
     </div>
-    
+
   );
 }
 
