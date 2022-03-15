@@ -230,7 +230,7 @@ function AgencyList() {
                   </button>
                   <br />
 
-                  <button className="button4" onClick={() => deleteagency(agency)}>Delete agency</button>
+                  {/* <button className="button4" onClick={() => deleteagency(agency)}>Delete agency</button> */}
 
                   <button className="button4" onClick={closeModal}>Close</button>
                 </div>

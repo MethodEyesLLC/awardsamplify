@@ -209,7 +209,7 @@ function SeeAwards() {
                 </div>
 
               </Modal>
-              <button className="button4" style={{ marginBottom: "2vh", color: "white" }} onClick={() => deleteAward(award)}>Delete award</button>
+              {/* <button className="button4" style={{ marginBottom: "2vh", color: "white" }} onClick={() => deleteAward(award)}>Delete award</button> */}
               {
                 award.image && <img src={award.image} style={{ width: 400 }} />
               }

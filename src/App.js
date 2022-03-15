@@ -148,7 +148,7 @@ function App() {
       </div>
       <footer style={{ textAlign: "center", paddingTop: "3vh" }}>
         <h2 style={{ color: "white" }}>
-          Built By James Lenahan
+          Built By Method Eyes, LLC.
         </h2>
       </footer>
 
