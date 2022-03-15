@@ -193,10 +193,13 @@ h1 {
   flex: 1;
   background-color: var(--primary-color);
   padding-bottom: 2vh;
-  width: 30vw;
-  height: 12vh;
+  width: 56vw;
+  padding-top: 2vh;
+  height: 15vh;
+  text-align: center;
   box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px, rgba(231, 214, 214, 0.06) 0px 0px 0px 1px;  margin: 1vh
 }
+
 /* Show Award */
 .awardwrapper {
 }
@@ -311,6 +314,7 @@ input[type="file"] {
   margin-left: 10vw
 
 }
+
 @media screen and (max-width:1300px) {
   .awardwrapper {
     width: 60vw
@@ -330,5 +334,17 @@ input[type="file"] {
     margin-top: -5vh;
     margin-left: -7.5vw
   
+  }
+  .awardsdashitemmini {
+    text-align: center;
+    flex: 1;
+    background-color: var(--primary-color);
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+    width: 45vw;
+    font-size: 60%;
+    height: 15vh;
+    text-align: center;
+    box-shadow: rgba(255, 255, 255, 0.16) 0px 10px 36px 0px, rgba(231, 214, 214, 0.06) 0px 0px 0px 1px;  margin: 1vh
   }
 }

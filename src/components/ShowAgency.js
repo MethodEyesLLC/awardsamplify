@@ -348,7 +348,6 @@ function ShowAgency() {
                   key={award.id || award.name}
                   onClick={() => removeAwardFromCampaign(award)}
                 >
-                  <h2>Shows Won</h2>
                   <h2>{award.name}</h2>
                   <h3>Click to Remove Award from {currentCampaign.content} </h3>
                   {/* <p>{award.content}</p>
@@ -373,8 +372,6 @@ function ShowAgency() {
                   <h2>{award.name}</h2>
                   <h3>Click to Add Award to {currentCampaign.content} </h3>
                   <p>{award.content}</p>
-                  <h3>First Deadline:</h3>
-                  <p>{award.deadline1}</p>
 
 
 
